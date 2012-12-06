@@ -14,6 +14,7 @@
 <!-- Javascriptの読み込み -->
   <script src="./js/script.js"></script>
   <script src="./data/bus.js"></script>
+  <script src="./data/partners.js"></script>
 
 <!-- プルダウン -->
   <form name="bus">
@@ -45,33 +46,32 @@
   <div id="index_result">Index Result</div>
 
 <br/><br/>
-<div id="trash">hoge</div>
+<div id="trash">TRASH</div>
 
 
-<!--
+
 <script>
 function hoge() {
-    var query = document.getElementById('index').value;
+    var query     = document.getElementById('index').value;
     var index_out = document.getElementById('index_result');
+    var trash     = document.getElementById('trash');
 
     var obj = document.bus.stop_name;
     var stop = [];
     stop_array = obj.options;
 
-    for ( var i = 0; i < stop_array.length; i++ ) {
+/*    for ( var i = 0; i < stop_array.length; i++ ) {
         var stop_jap = stop_array[i].value;
         index_out.innerHTML = stop_jap; //慶応大学本館前/辻堂駅北口
+*/
 
-        rObj = new RegExp("慶応大学/湘南台駅西口(急行)");
-        if ( stop_jap.match(rObj) ) { ///正規表現
-            var stop = "keiomain_tujidou_weekday" ;
-            alert(stop);
-        }
+	var stop = partners[query] ;
+	trash.innerHTML = stop + "//" + stop_jap;
 
-
-    }
+ /*       break;
+    }*/
 }
 </script>
--->
+
 </body>
 </html>
