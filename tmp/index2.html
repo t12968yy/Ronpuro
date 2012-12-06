@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<!--  <script src="./js/script_innerHTML2.js"></script> -->
+<script src="./js/script_subroutine3.js"></script>
+<script src="./data/bus.js"></script>
+<form name="bus">
+  <select onChange="get_bus()" name="stop_name">
+    <OPTION value="港南中央">港南中央</OPTION>
+    <OPTION value="上大岡">上大岡</OPTION>
+    <OPTION value="湘南台" selected>湘南台</OPTION>
+    <OPTION value="慶応大学/湘南台駅西口(急行)">慶応大学/湘南台駅西口(急行)</OPTION>
+    <OPTION value="慶応大学本館前/湘南台駅西口(急行)">慶応大学本館前/湘南台駅西口(急行)</OPTION>
+    <OPTION value="慶応大学本館前/辻堂駅北口">慶応大学本館前/辻堂駅北口</OPTION>
+  </select>
+</form>
+<div id="destination">destination</div>
+<div id="time">Time</div>
+
+
+<script type="text/javascript">
+function get_bus() {
+  var obj = document.bus.stop_name;
+  var index = obj.selectedIndex;
+
+  var destination = document.getElementById('destination');
+  var time        =  document.getElementById('time');
+
+  if (index != 0) {
+     var stop = obj.options[index].value;
+
+
+
+
+
+
+
+     var bus_stop =  get_bus_stop(stop);
+  }
+}
+</script>
+
+</body>
+
+</html>
