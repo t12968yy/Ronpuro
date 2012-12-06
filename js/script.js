@@ -120,18 +120,7 @@ function get_bus() {
 		bus_stop =  get_bus_stop(keiouniv_syounandai_norm_weekday) + " // " + stop;
             }
 	}
-	else if ( stop == "慶応大学本館前/(急行)湘南台駅西口" ) {
-            if ( Day == 0 ) { ///SUN
-		time.innerHTML =  "No Buses on this line on Sundays";
-            }
-            else if ( Day == 6 ) { //SAT
-		bus_stop =  get_bus_stop(keiomain_syounandai_kyuukou_sat) + " // " + stop;
-            }
-            else {
-		bus_stop =  get_bus_stop(keiomain_syounandai_kyuukou_weekday) + " // " + stop;
-            }
-	}
-	else if ( stop = "慶応大学本館前/湘南台駅西口" ) {
+	else if ( stop == "慶応大学本館前/湘南台駅西口" ) {
             if ( Day == 0 ) {
 		time.innerHTML = "No Buses on this line on Sundays";
             }
@@ -142,7 +131,7 @@ function get_bus() {
 		bus_stop =  get_bus_stop(keiomain_syounandai_norm_weekday) + " // " + stop;
             }
 	}
-	else if ( stop = "慶応大学本館前/辻堂駅北口" ) {
+	else if ( stop == "慶応大学本館前/辻堂駅北口" ) {
             if ( Day == 0 ) {
 		time.innerHTML = "No Buses on this line on Sundays";
             }
@@ -154,7 +143,7 @@ function get_bus() {
 		bus_stop =  get_bus_stop(keiomain_tujidou_weekday) + " // " + stop;
             }
 	}
-	else if ( stop = "公務員住宅入口/上永谷駅前" ) {
+	else if ( stop == "公務員住宅入口/上永谷駅前" ) {
             if ( Day == 0 ) {
 		time.innerHTML = "No Buses on this line on Sundays";
             }
@@ -163,9 +152,20 @@ function get_bus() {
             }
             else {
 		bus_stop =  get_bus_stop(kouminn_kaminagaya_weekday) + " // " + stop;
-
             }
 	}
+	else if ( stop == "慶応大学本館前/(急行)湘南台駅西口" ) {
+            if ( Day == 0 ) { ///SUN
+		time.innerHTML =  "No Buses on this line on Sundays";
+            }
+            else if ( Day == 6 ) { //SAT
+		bus_stop =  get_bus_stop(keiomain_syounandai_kyuukou_sat) + " // " + stop;
+            }
+            else {
+		bus_stop =  get_bus_stop(keiomain_syounandai_kyuukou_weekday) + " // " + stop;
+            }
+	}
+
     }
     time.innerHTML = bus_stop;
 }
