@@ -65,7 +65,7 @@ function get_bus_stop(hoge) {
 	out = " There are no buses in the near 3 hours.<br>";
     }
     else {
-	out = "Bus Arrival => " + target_h + ":" + target_m + "<br/>Present time => " + pre_time_h + ":" + pre_time_m + "<br/>Time Left => " + diff + "min";
+	out = "Bus Arrival => " + target_h + ":" + target_m + "<br/>Present time => " + pre_time_h + ":" + pre_time_m + "<br/>Time Left => " + diff + " min";
     }
     return out;
 }
@@ -145,7 +145,18 @@ function get_bus() {
 		time.innerHTML = "No Buses on this line on Saturdays";
             }
             else {
-		bus_stop =  get_bus_stop(kouminn_kaminagaya_weekday) + " <br/>// " + stop;
+		bus_stop =  get_bus_stop(koumuinn_kaminagaya_weekday) + " <br/>// " + stop;
+            }
+	}
+	else if ( stop == "公務員住宅入口/上大岡駅前" ) {
+            if ( Day == 0 ) {
+		time.innerHTML = "No Buses on this line on Sundays";
+            }
+            else if ( Day == 6 ) {
+		time.innerHTML = "No Buses on this line on Saturdays";
+            }
+            else {
+		bus_stop =  get_bus_stop(koumuinn_kamioooka_weekday) + " <br/>// " + stop;
             }
 	}
 	else if ( stop == "慶応大学本館前/(急行)湘南台駅西口" ) {
@@ -159,7 +170,28 @@ function get_bus() {
 		bus_stop =  get_bus_stop(keiomain_syounandai_kyuukou_weekday) + " <br/>// " + stop;
             }
 	}
-
+	else if ( stop == "湘南台駅西口/慶応大学中高部前" ) {
+            if ( Day == 0 ) {
+		time.innerHTML = "No Buses on this line on Sundays";
+            }
+            else if ( Day == 6 ) {
+		time.innerHTML = "No Buses on this line on Saturdays";
+            }
+            else {
+		bus_stop =  get_bus_stop(syounandai_keiomain_norm_weekday) + " <br/>// " + stop;
+            }
+	}
+	else if ( stop == "湘南台駅西口/(急行)慶応大学中高部前" ) {
+            if ( Day == 0 ) {
+		time.innerHTML = "No Buses on this line on Sundays";
+            }
+            else if ( Day == 6 ) {
+		time.innerHTML = "No Buses on this line on Saturdays";
+            }
+            else {
+		bus_stop =  get_bus_stop(syounandai_keiomain_kyuukou_weekday) + " <br/>// " + stop;
+            }
+	}
     }
     time.innerHTML = bus_stop;
 }
