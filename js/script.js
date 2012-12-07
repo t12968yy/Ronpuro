@@ -64,15 +64,13 @@ function get_bus_stop(hoge) {
 /// innerHTMLに出力
     var out;
     if ( target_time == 1439 ) {
-//	time.innerHTML =  " No More Buses Today 1" ;
-	out =  "Bus Arrival =>  Last bus has already departed<br/>Present time => " + pre_time_h + ":" + pre_time_m + "<br/>Time Left => NaN";
+	out = "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\"><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>Last bus has already departed</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table><br/>";
     }
     else if ( target_time - pre_time > 180 ) {
-//	time.innerHTML = " There are no buses in the near 3 hours.";
-	out = " There are no buses in the near 3 hours.<br>";
+	out = "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\"><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>There are no buses in the next 3 hours</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table><br/>";
     }
     else {
-	out = "<table border=\"0\" align=\"left\" width=\"300\"><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>" + target_h + ":" + target_m + "</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table><br/>";
+	out = "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>" + target_h + ":" + target_m + "</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table><br/>";
     }
     return out;
 }

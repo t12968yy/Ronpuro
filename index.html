@@ -1,99 +1,21 @@
 <!DOCTYPE HTML>
 <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <title>論理思考とプログラミング最終課題</title>
+  </head>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>論理思考とプログラミング最終課題</title>
-  <!-- IEでHTML5のタグを認識するための処理 -->
-  <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
-</head>
 
-<body>
-  <!-- Javascriptの読み込み -->
-  <script src="./js/script.js"></script>
-  <script src="./data/bus.js"></script>
-  <script src="./data/partners.js"></script>
-  
-  <!-- プルダウン -->
-  <form name="bus">
-    <select onChange="get_bus()" name="stop_name">
-      <OPTION value="港南中央">港南中央</OPTION>
-      <OPTION value="上大岡">上大岡</OPTION>
-      <OPTION value="公務員住宅入口/上永谷駅前">公務員住宅入り口/上永谷駅前</OPTION>
-      <OPTION value="公務員住宅入口/上大岡駅前">公務員住宅入り口/上大岡駅前</OPTION>
-      <OPTION value="湘南台" selected>湘南台</OPTION>
-      <OPTION value="湘南台駅西口/(急行)慶応大学中高部前">湘南台駅西口/(急行)慶応大学中高部前</OPTION>
-      <OPTION value="湘南台駅西口/慶応大学中高部前">湘南台駅西口/慶応大学中高部前</OPTION>
-      <OPTION value="慶応大学/(急行)湘南台駅西口">慶応大学/湘南台駅西口(急行)</OPTION>
-      <OPTION value="慶応大学/湘南台駅西口">慶応大学/湘南台駅西口</OPTION>
-      <OPTION value="慶応大学本館前/(急行)湘南台駅西口">慶応大学本館前/湘南台駅西口(急行)</OPTION>
-      <OPTION value="慶応大学本館前/湘南台駅西口">慶応大学本館前/湘南台駅西口</OPTION>
-      <OPTION value="慶応大学本館前/辻堂駅北口">慶応大学本館前/辻堂駅北口</OPTION>
-    </select>
-  </form>
-  
-  <!-- 検索ボックス -->
-  
-  <!-- innerHTML -->
-  <div id="destination">Final Destination</div>
-  <div id="time">
-    <table border="0" align="left" width="300">
-      <tr width="200">
-	<td>Bus Arrival</td>
-	<td>=></td>
-<td></td>
-</tr>
-<tr width="50">
-  <td>Present time</td>
-  <td>=></td>
-  <td></td>
-</tr>
-<tr width="50">
-  <td>Time Left</td>
-  <td> =></td>
-  <td></td>
-</tr>
-</table><br/>
-</div>
+  <frameset cols="20%,*" border="1">
+    <frame name="Menu" src="./menu.html">
+    <frame name="Main" src="./main.html">
 
-<br/><br/><br/><br/>
+  <noframes>
 
-<form>
-  <input type="text" size="20" id="index">
-  <input type="button" value="hoge" onclick="hoge()">
-  <input type="button" value="index_find()" onclick="index_find()">
-</form>
-<div id="index_result">Index Result</div>
-
-<br/><br/>
-<div id="trash">TRASH</div>
-
-<!--
-
-<script>
-function hoge() {
-    var query     = document.getElementById('index').value;
-    var index_out = document.getElementById('index_result');
-    var trash     = document.getElementById('trash');
-
-    var obj = document.bus.stop_name;
-    var stop = [];
-    stop_array = obj.options;
-
-/*    for ( var i = 0; i < stop_array.length; i++ ) {
-        var stop_jap = stop_array[i].value;
-        index_out.innerHTML = stop_jap; //慶応大学本館前/辻堂駅北口
-*/
-
-	var stop = partners[query] ;
-	trash.innerHTML = stop + "//" + stop_jap;
-
- /*       break;
-    }*/
-}
-</script>
--->
-</body>
+    <body>
+      <P>このページを表示するには、フレームをサポートしているブラウザが必要です。</P>
+    </body>
+</noframe>
+  </frameset>
 </html>
