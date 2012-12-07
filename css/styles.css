@@ -8,6 +8,7 @@ body {
      font-size: 100%;
      font-family: inherit;
      vertical-align: baseline;
+
 }
 html, body {
         width:100%;
@@ -19,11 +20,11 @@ table {
 
 html, body{
         font-family:Arial, Helvetica, sans-serif;
-        font-size: 13px;
+        font-size: 20px;
         color: black;
         margin:0 0 1px;
-        line-height: 3;
-        background-color:white;
+        line-height: 2;
+	background-color:#e0f9ee;
         background-position:left top;
         background-repeat:repeat-x;
 
