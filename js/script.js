@@ -60,6 +60,7 @@ function get_bus_stop(hoge) {
 
     var diff = target_time - pre_time;
 
+
 /// innerHTMLに出力
     var out;
     if ( target_time == 1439 ) {
@@ -71,7 +72,7 @@ function get_bus_stop(hoge) {
 	out = " There are no buses in the near 3 hours.<br>";
     }
     else {
-	out = "<table border=0 align=left width=200><tr><td>Bus Arrival</th><td>=></th><td>" + target_h + ":" + target_m + "</th></tr><tr><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table><br/>";
+	out = "<table border=\"0\" align=\"left\" width=\"300\"><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>" + target_h + ":" + target_m + "</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table><br/>";
     }
     return out;
 }

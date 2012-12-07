@@ -2,21 +2,21 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>論理思考とプログラミング最終課題</title>
-<!-- IEでHTML5のタグを認識するための処理 -->
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>論理思考とプログラミング最終課題</title>
+  <!-- IEでHTML5のタグを認識するための処理 -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
 </head>
 
 <body>
-<!-- Javascriptの読み込み -->
+  <!-- Javascriptの読み込み -->
   <script src="./js/script.js"></script>
   <script src="./data/bus.js"></script>
   <script src="./data/partners.js"></script>
-
-<!-- プルダウン -->
+  
+  <!-- プルダウン -->
   <form name="bus">
     <select onChange="get_bus()" name="stop_name">
       <OPTION value="港南中央">港南中央</OPTION>
@@ -33,20 +33,39 @@
       <OPTION value="慶応大学本館前/辻堂駅北口">慶応大学本館前/辻堂駅北口</OPTION>
     </select>
   </form>
-
-<!-- 検索ボックス -->
-
-<!-- innerHTML -->
+  
+  <!-- 検索ボックス -->
+  
+  <!-- innerHTML -->
   <div id="destination">Final Destination</div>
-  <div id="time">Bus Arrival =><br/>Present time =><br/>Time Left =></div>
-  <br/><br/><br/><br/>
+  <div id="time">
+    <table border="0" align="left" width="300">
+      <tr width="200">
+	<td>Bus Arrival</td>
+	<td>=></td>
+<td></td>
+</tr>
+<tr width="50">
+  <td>Present time</td>
+  <td>=></td>
+  <td></td>
+</tr>
+<tr width="50">
+  <td>Time Left</td>
+  <td> =></td>
+  <td></td>
+</tr>
+</table><br/>
+</div>
 
-  <form>
-    <input type="text" size="20" id="index">
-    <input type="button" value="hoge" onclick="hoge()">
-    <input type="button" value="index_find()" onclick="index_find()">
-  </form>
-  <div id="index_result">Index Result</div>
+<br/><br/><br/><br/>
+
+<form>
+  <input type="text" size="20" id="index">
+  <input type="button" value="hoge" onclick="hoge()">
+  <input type="button" value="index_find()" onclick="index_find()">
+</form>
+<div id="index_result">Index Result</div>
 
 <br/><br/>
 <div id="trash">TRASH</div>
