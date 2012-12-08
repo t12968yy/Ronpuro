@@ -176,7 +176,7 @@ var koumuinn_kamioooka_weekday = [ /// 公務員住宅入口 上大岡駅 平日
     [21,9,19,28,39,48,59],
     [22,8,19,29,39]
 ];
-var syounandai_keiomain_norm_weekday = [
+var syounandai_keiomain_norm_weekday = [ /// 慶応大学本館前 湘南台駅西口 普通 平日
     [7,10,17,30,40,44,48,56],
     [8,04,12,20,24,28,40,49,59],
     [9,08,12,16,26,36,40,55],
@@ -193,7 +193,7 @@ var syounandai_keiomain_norm_weekday = [
     [20,05,15,25,35,50],
     [21,05,20,35,50]
 ];
-var syounandai_keiomain_kyuukou_weekday = [
+var syounandai_keiomain_kyuukou_weekday = [ /// 慶応大学本館前 湘南台駅西口 急行 平日
     [7,24,35,48,53,58],
     [8,01,05,09,12,17,35,45,55],
     [9,04,22,32,50],
