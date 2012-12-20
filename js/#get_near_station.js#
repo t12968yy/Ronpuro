@@ -22,7 +22,6 @@ function showAddress(latitude, longitude) {
     try {
         var gclient = new google.maps.ClientGeocoder();
         var pos = new google.maps.LatLng(latitude, longitude);
-	
         //Google Map API を使って住所を取得
         gclient.getLocations(pos, function(response) {
             if (response && response.Status.code == 200) {
