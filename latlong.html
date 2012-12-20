@@ -6,11 +6,12 @@
   <meta http-equiv="Content-Style-Type" content="text/css">
   <title>現在地を用いて駅探</title>
   <!-- localhost 用のキー使用 -->
-  <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAnfs7bKE82qgb3Zc2YyS-oBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSySz_REpPq-4WZA27OwgbtyR3VcA"></script>
+<!--  <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAnfs7bKE82qgb3Zc2YyS-oBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSySz_REpPq-4WZA27OwgbtyR3VcA"></script>-->
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script type="text/javascript" src="./js/get_latlong.js"></script>
 </head>
 
-<body onunload="GUnload()">
+<body>
   <h1>現在地</h1>
   <div id="location"></div>
   <div id="address"></div>
@@ -18,7 +19,7 @@
   <div id="tmp"></div>
 
 <form>
-<input type="button" name="search" value="OK" onclick=search()>
+  <input type="button" name="search" value="OK" onclick="GUnload()">
 </form>
 
 

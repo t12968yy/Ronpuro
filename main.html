@@ -2,9 +2,9 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>è«–ç†æ€è€ƒã¨ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°æœ€çµ‚èª²é¡Œ</title>
-  <!-- IEã§HTML5ã®ã‚¿ã‚°ã‚’èªè­˜ã™ã‚‹ãŸã‚ã®å‡¦ç† -->
+  <meta http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+  <title>˜_—Žvl‚ÆƒvƒƒOƒ‰ƒ~ƒ“ƒOÅI‰Û‘è</title>
+  <!-- IE‚ÅHTML5‚Ìƒ^ƒO‚ð”FŽ¯‚·‚é‚½‚ß‚Ìˆ— -->
   <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
@@ -14,31 +14,34 @@
 </head>
 
 <body>
-  <!-- cssã®èª­ã¿è¾¼ã¿ -->
+  <!-- css‚Ì“Ç‚Ýž‚Ý -->
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-  <!-- Javascriptã®èª­ã¿è¾¼ã¿ -->
+  <!-- Javascript‚Ì“Ç‚Ýž‚Ý -->
   <script src="./js/script.js"></script>
   <script src="./js/get_station.js"></script>
   <script src="./data/bus.js"></script>
   <script src="./data/partners.js"></script>
 
-  
-  <!-- ãƒ—ãƒ«ãƒ€ã‚¦ãƒ³ -->
+  <!-- “ú–{Œêencoder•ÏŠ· http://polygon-planet-log.blogspot.jp/2012/04/javascript.html
+  <script src="https://raw.github.com/polygonplanet/Unzipper.js/master/src/encoding.js"></script>
+  -->
+
+  <!-- ƒvƒ‹ƒ_ƒEƒ“ -->
   <form name="bus">
     <select onChange="get_bus()" name="stop_name">
-      <OPTION selected>====== é¸æŠžã—ã¦ãã ã•ã„ ======</OPTION>
-      <OPTION value="æ¸¯å—ä¸­å¤®">æ¸¯å—ä¸­å¤®</OPTION>
-      <OPTION value="ä¸Šå¤§å²¡">ä¸Šå¤§å²¡</OPTION>
-      <OPTION value="å…¬å‹™å“¡ä½å®…å…¥å£/ä¸Šæ°¸è°·é§…å‰">å…¬å‹™å“¡ä½å®…å…¥å£/ä¸Šæ°¸è°·é§…å‰</OPTION>
-      <OPTION value="å…¬å‹™å“¡ä½å®…å…¥å£/ä¸Šå¤§å²¡é§…å‰">å…¬å‹™å“¡ä½å®…å…¥å£/ä¸Šå¤§å²¡é§…å‰</OPTION>
-      <OPTION value="æ¹˜å—å°é§…è¥¿å£/(æ€¥è¡Œ)æ…¶å¿œå¤§å­¦ä¸­é«˜éƒ¨å‰">æ¹˜å—å°é§…è¥¿å£/(æ€¥è¡Œ)æ…¶å¿œå¤§å­¦ä¸­é«˜éƒ¨å‰</OPTION>
-      <OPTION value="æ¹˜å—å°é§…è¥¿å£/æ…¶å¿œå¤§å­¦ä¸­é«˜éƒ¨å‰">æ¹˜å—å°é§…è¥¿å£/æ…¶å¿œå¤§å­¦ä¸­é«˜éƒ¨å‰</OPTION>
-      <OPTION value="æ…¶å¿œå¤§å­¦/(æ€¥è¡Œ)æ¹˜å—å°é§…è¥¿å£">æ…¶å¿œå¤§å­¦/æ¹˜å—å°é§…è¥¿å£(æ€¥è¡Œ)</OPTION>
-      <OPTION value="æ…¶å¿œå¤§å­¦/æ¹˜å—å°é§…è¥¿å£">æ…¶å¿œå¤§å­¦/æ¹˜å—å°é§…è¥¿å£</OPTION>
-      <OPTION value="æ…¶å¿œå¤§å­¦æœ¬é¤¨å‰/(æ€¥è¡Œ)æ¹˜å—å°é§…è¥¿å£">æ…¶å¿œå¤§å­¦æœ¬é¤¨å‰/æ¹˜å—å°é§…è¥¿å£(æ€¥è¡Œ)</OPTION>
-      <OPTION value="æ…¶å¿œå¤§å­¦æœ¬é¤¨å‰/æ¹˜å—å°é§…è¥¿å£">æ…¶å¿œå¤§å­¦æœ¬é¤¨å‰/æ¹˜å—å°é§…è¥¿å£</OPTION>
-      <OPTION value="æ…¶å¿œå¤§å­¦æœ¬é¤¨å‰/è¾»å ‚é§…åŒ—å£">æ…¶å¿œå¤§å­¦æœ¬é¤¨å‰/è¾»å ‚é§…åŒ—å£</OPTION>
+      <OPTION selected>====== ‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢ ======</OPTION>
+      <OPTION value="`“ì’†‰›">`“ì’†‰›</OPTION>
+      <OPTION value="ã‘å‰ª">ã‘å‰ª</OPTION>
+      <OPTION value="Œö–±ˆõZ‘î“üŒû/ã‰i’J‰w‘O">Œö–±ˆõZ‘î“üŒû/ã‰i’J‰w‘O</OPTION>
+      <OPTION value="Œö–±ˆõZ‘î“üŒû/ã‘å‰ª‰w‘O">Œö–±ˆõZ‘î“üŒû/ã‘å‰ª‰w‘O</OPTION>
+      <OPTION value="Ã“ì‘ä‰w¼Œû/(‹}s)Œc‰ž‘åŠw’†‚•”‘O">Ã“ì‘ä‰w¼Œû/(‹}s)Œc‰ž‘åŠw’†‚•”‘O</OPTION>
+      <OPTION value="Ã“ì‘ä‰w¼Œû/Œc‰ž‘åŠw’†‚•”‘O">Ã“ì‘ä‰w¼Œû/Œc‰ž‘åŠw’†‚•”‘O</OPTION>
+      <OPTION value="Œc‰ž‘åŠw/(‹}s)Ã“ì‘ä‰w¼Œû">Œc‰ž‘åŠw/Ã“ì‘ä‰w¼Œû(‹}s)</OPTION>
+      <OPTION value="Œc‰ž‘åŠw/Ã“ì‘ä‰w¼Œû">Œc‰ž‘åŠw/Ã“ì‘ä‰w¼Œû</OPTION>
+      <OPTION value="Œc‰ž‘åŠw–{ŠÙ‘O/(‹}s)Ã“ì‘ä‰w¼Œû">Œc‰ž‘åŠw–{ŠÙ‘O/Ã“ì‘ä‰w¼Œû(‹}s)</OPTION>
+      <OPTION value="Œc‰ž‘åŠw–{ŠÙ‘O/Ã“ì‘ä‰w¼Œû">Œc‰ž‘åŠw–{ŠÙ‘O/Ã“ì‘ä‰w¼Œû</OPTION>
+      <OPTION value="Œc‰ž‘åŠw–{ŠÙ‘O/’Ò“°‰w–kŒû">Œc‰ž‘åŠw–{ŠÙ‘O/’Ò“°‰w–kŒû</OPTION>
     </select>
   </form>
 
@@ -69,22 +72,22 @@
 <form name="form">
 <select name="pref" onChange="setMenuItem(0,this[this.selectedIndex].value)">
   <option value="0" selected>-----
-  <option value="1">åŒ—æµ·é“<option value="2">é’æ£®çœŒ<option value="3">å²©æ‰‹çœŒ
-  <option value="4">å®®åŸŽçœŒ<option value="5">ç§‹ç”°çœŒ<option value="6">å±±å½¢çœŒ
-  <option value="7">ç¦å³¶çœŒ<option value="8">èŒ¨åŸŽçœŒ<option value="9">æ ƒæœ¨çœŒ
-  <option value="10">ç¾¤é¦¬çœŒ<option value="11">åŸ¼çŽ‰çœŒ<option value="12">åƒè‘‰çœŒ
-  <option value="13">æ±äº¬éƒ½<option value="14">ç¥žå¥ˆå·çœŒ<option value="15">æ–°æ½ŸçœŒ
-  <option value="16">å¯Œå±±çœŒ<option value="17">çŸ³å·çœŒ<option value="18">ç¦äº•çœŒ
-  <option value="19">å±±æ¢¨çœŒ<option value="20">é•·é‡ŽçœŒ<option value="21">å²é˜œçœŒ
-  <option value="22">é™å²¡çœŒ<option value="23">æ„›çŸ¥çœŒ<option value="24">ä¸‰é‡çœŒ
-  <option value="25">æ»‹è³€çœŒ<option value="26">äº¬éƒ½åºœ<option value="27">å¤§é˜ªåºœ
-  <option value="28">å…µåº«çœŒ<option value="29">å¥ˆè‰¯çœŒ<option value="30">å’Œæ­Œå±±çœŒ
-  <option value="31">é³¥å–çœŒ<option value="32">å³¶æ ¹çœŒ<option value="33">å²¡å±±çœŒ
-  <option value="34">åºƒå³¶çœŒ<option value="35">å±±å£çœŒ<option value="36">å¾³å³¶çœŒ
-  <option value="37">é¦™å·çœŒ<option value="38">æ„›åª›çœŒ<option value="39">é«˜çŸ¥çœŒ
-  <option value="40">ç¦å²¡çœŒ<option value="41">ä½è³€çœŒ<option value="42">é•·å´ŽçœŒ
-  <option value="43">ç†Šæœ¬çœŒ<option value="44">å¤§åˆ†çœŒ<option value="45">å®®å´ŽçœŒ
-  <option value="46">é¹¿å…å³¶çœŒ<option value="47">æ²–ç¸„çœŒ
+  <option value="1">–kŠC“¹<option value="2">ÂXŒ§<option value="3">ŠâŽèŒ§
+  <option value="4">‹{éŒ§<option value="5">H“cŒ§<option value="6">ŽRŒ`Œ§
+  <option value="7">•Ÿ“‡Œ§<option value="8">ˆïéŒ§<option value="9">“È–ØŒ§
+  <option value="10">ŒQ”nŒ§<option value="11">é‹ÊŒ§<option value="12">ç—tŒ§
+  <option value="13">“Œ‹ž“s<option value="14">_“ÞìŒ§<option value="15">VŠƒŒ§
+  <option value="16">•xŽRŒ§<option value="17">ÎìŒ§<option value="18">•ŸˆäŒ§
+  <option value="19">ŽR—œŒ§<option value="20">’·–ìŒ§<option value="21">Šò•ŒŒ§
+  <option value="22">Ã‰ªŒ§<option value="23">ˆ¤’mŒ§<option value="24">ŽOdŒ§
+  <option value="25">Ž ‰êŒ§<option value="26">‹ž“s•{<option value="27">‘åã•{
+  <option value="28">•ºŒÉŒ§<option value="29">“Þ—ÇŒ§<option value="30">˜a‰ÌŽRŒ§
+  <option value="31">’¹ŽæŒ§<option value="32">“‡ªŒ§<option value="33">‰ªŽRŒ§
+  <option value="34">L“‡Œ§<option value="35">ŽRŒûŒ§<option value="36">“¿“‡Œ§
+  <option value="37">ìŒ§<option value="38">ˆ¤•QŒ§<option value="39">‚’mŒ§
+  <option value="40">•Ÿ‰ªŒ§<option value="41">²‰êŒ§<option value="42">’·èŒ§
+  <option value="43">ŒF–{Œ§<option value="44">‘å•ªŒ§<option value="45">‹{èŒ§
+  <option value="46">Ž­Ž™“‡Œ§<option value="47">‰«“êŒ§
 </select>
 <select name="s0" onChange="setMenuItem(1,this[this.selectedIndex].value)">
   <option selected>----
@@ -94,11 +97,11 @@
 </select>
 </form>
 
-<!-- åŒºåˆ‡ã‚Šç·š -->
+<!-- ‹æØ‚èü -->
 <hr size="3" color="#ffaaaa" width="80%" >
 
 
-<!-- æ¤œç´¢ãƒœãƒƒã‚¯ã‚¹
+<!-- ŒŸõƒ{ƒbƒNƒX
 <form>
   <input type="text" size="20" id="index">
   <input type="button" value="hoge" onclick="hoge()">
@@ -123,7 +126,7 @@ function hoge() {
 
 /*    for ( var i = 0; i < stop_array.length; i++ ) {
         var stop_jap = stop_array[i].value;
-        index_out.innerHTML = stop_jap; //æ…¶å¿œå¤§å­¦æœ¬é¤¨å‰/è¾»å ‚é§…åŒ—å£
+        index_out.innerHTML = stop_jap; //Œc‰ž‘åŠw–{ŠÙ‘O/’Ò“°‰w–kŒû
 */
 
 	var stop = partners[query] ;
