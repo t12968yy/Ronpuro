@@ -1,1 +1,0 @@
-yuki@net43-dhcp64.sfc.keio.ac.jp.46906
