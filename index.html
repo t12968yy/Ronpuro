@@ -7,15 +7,17 @@
   </head>
 
 
-    <frameset cols="15%,42.5%,*" border="1">
+    <frameset cols="15%,*" border="1">
       <frame name="Menu" src="./menu.html">
-      <frame name="Main" src="./main.html">
-      <frame name="latlong" src="./latlong.html">
+      <frameset rows="75%,*" border="1">
+	<frame name="Main" src="./main.html">
+	<frame name="latlong" src="./latlong.html">
 
-      <noframes>
-	<body>
-	  <P>このページを表示するには、フレームをサポートしているブラウザが必要です。</P>
-	</body>
-      </noframe>
+	<noframes>
+	  <body>
+	    <P>このページを表示するには、フレームをサポートしているブラウザが必要です。</P>
+	  </body>
+        </noframe>
+      </frameset>
     </frameset>
 </html>
