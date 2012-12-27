@@ -1,20 +1,43 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">-->
-    <meta http-equiv="Content-Style-Type" content="text/css">
-    <title>論理思考とプログラミング最終課題</title>
-  </head>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">-->
+  <title>論理思考とプログラミング最終課題</title>
+  <!-- IEでHTML5のタグを認識するための処理 -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+</head>
+
+<body>
+  <!-- cssの読み込み -->
+<div id="main">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <form>
+    <input type="button" value="Bus" onclick="location.href='./bus.html'">
+    <input type="button" value="Train" onclick="location.href='./train.html'">
+    <input type="button" value="Location" onclick="location.href='./latlong.html'">
+  </form>
+</div>
+
+<div id="navi">
+  <ul>
+    <li><a href="index.html"><span>Home</span></a></li>
+    <li><a href="bus.html"><span>Bus</span></a></li>
+    <li><a href="train.html"><span>Train</span></a></li>
+    <li><a href="latlong.html"><span>Location</span></a></li>
+    <li><a href="https://github.com/t12968yy/Ronpuro" target="_top"><span>About</span></a></li>
+    <li><a href="#"><span>Contact</span></a></li>
+</ul>
+</div>
 
 
-  <frameset cols="15%,*" border="1">
-    <frame name="Menu" src="./menu.html">
-    <frame name="Main" src="./main.html">
-    <noframes>
-      <body>
-	<P>このページを表示するには、フレームをサポートしているブラウザが必要です。</P>
-      </body>
-</noframe>
-</frameset>
+
+</body>
 </html>

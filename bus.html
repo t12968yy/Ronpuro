@@ -15,53 +15,65 @@
 </head>
 
 <body>
-  <!-- cssの読み込み -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <div id="main">
+    <!-- cssの読み込み -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-  <!-- Javascriptの読み込み -->
-  <script src="./js/script.js"></script>
-  <script src="./js/get_station.js"></script>
-  <script src="./data/bus.js"></script>
-  <script src="./data/partners.js"></script>
+    <!-- Javascriptの読み込み -->
+    <script src="./js/script.js"></script>
+    <script src="./js/get_station.js"></script>
+    <script src="./data/bus.js"></script>
+    <script src="./data/partners.js"></script>
 
-  <!-- プルダウン -->
-  <form name="bus">
-    <select onChange="get_bus()" name="stop_name">
-      <OPTION selected>====== 選択してください ======</OPTION>
-      <OPTION value="港南中央">港南中央</OPTION>
-      <OPTION value="上大岡">上大岡</OPTION>
-      <OPTION value="公務員住宅入口/上永谷駅前">公務員住宅入口/上永谷駅前</OPTION>
-      <OPTION value="公務員住宅入口/上大岡駅前">公務員住宅入口/上大岡駅前</OPTION>
-      <OPTION value="湘南台駅西口/(急行)慶応大学中高部前">湘南台駅西口/(急行)慶応大学中高部前</OPTION>
-      <OPTION value="湘南台駅西口/慶応大学中高部前">湘南台駅西口/慶応大学中高部前</OPTION>
-      <OPTION value="慶応大学/(急行)湘南台駅西口">慶応大学/湘南台駅西口(急行)</OPTION>
-      <OPTION value="慶応大学/湘南台駅西口">慶応大学/湘南台駅西口</OPTION>
-      <OPTION value="慶応大学本館前/(急行)湘南台駅西口">慶応大学本館前/湘南台駅西口(急行)</OPTION>
-      <OPTION value="慶応大学本館前/湘南台駅西口">慶応大学本館前/湘南台駅西口</OPTION>
-      <OPTION value="慶応大学本館前/辻堂駅北口">慶応大学本館前/辻堂駅北口</OPTION>
-    </select>
-  </form>
+    <!-- プルダウン -->
+    <form name="bus">
+      <select onChange="get_bus()" name="stop_name">
+	<OPTION selected>====== 選択してください ======</OPTION>
+	<OPTION value="港南中央">港南中央</OPTION>
+	<OPTION value="上大岡">上大岡</OPTION>
+	<OPTION value="公務員住宅入口/上永谷駅前">公務員住宅入口/上永谷駅前</OPTION>
+	<OPTION value="公務員住宅入口/上大岡駅前">公務員住宅入口/上大岡駅前</OPTION>
+	<OPTION value="湘南台駅西口/(急行)慶応大学中高部前">湘南台駅西口/(急行)慶応大学中高部前</OPTION>
+	<OPTION value="湘南台駅西口/慶応大学中高部前">湘南台駅西口/慶応大学中高部前</OPTION>
+	<OPTION value="慶応大学/(急行)湘南台駅西口">慶応大学/湘南台駅西口(急行)</OPTION>
+	<OPTION value="慶応大学/湘南台駅西口">慶応大学/湘南台駅西口</OPTION>
+	<OPTION value="慶応大学本館前/(急行)湘南台駅西口">慶応大学本館前/湘南台駅西口(急行)</OPTION>
+	<OPTION value="慶応大学本館前/湘南台駅西口">慶応大学本館前/湘南台駅西口</OPTION>
+	<OPTION value="慶応大学本館前/辻堂駅北口">慶応大学本館前/辻堂駅北口</OPTION>
+      </select>
+    </form>
 
-<!-- innerHTML -->
-  <div id="destination">Final Destination</div>
-  <div id="time">
-    <table border="0" align="left" style="table-layout: fixed;">
-      <tr width="200">
-	<td>Bus Arrival</td>
-	<td>=></td>
-        <td></td>
-      </tr>
-      <tr width="50">
-        <td>Present time</td>
-        <td>=></td>
-        <td></td>
-      </tr>
-      <tr width="50">
-        <td>Time Left</td>
-        <td> =></td>
-        <td></td>
-      </tr>
-    </table>
- </div>
+    <!-- innerHTML -->
+    <div id="destination">Final Destination</div>
+    <div id="time">
+      <table border="0" align="left" style="table-layout: fixed;">
+	<tr width="200">
+	  <td>Bus Arrival</td>
+	  <td>=></td>
+          <td></td>
+        </tr>
+        <tr width="50">
+          <td>Present time</td>
+          <td>=></td>
+          <td></td>
+        </tr>
+        <tr width="50">
+          <td>Time Left</td>
+          <td> =></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+<div id="navi">
+  <ul>
+    <li><a href="./index.html"><span>Home</span></a></li>
+    <li><a href="./bus.html"><span>Bus</span></a></li>
+    <li><a href="./train.html"><span>Train</span></a></li>
+    <li><a href="latlong.html"><span>Location</span></a></li>
+    <li><a href="https://github.com/t12968yy/Ronpuro" target="_top"><span>About</span></a></li>
+    <li><a href="#"><span>Contact</span></a></li>
+  </ul>
+</div>
 </body>
 </html>
