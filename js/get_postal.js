@@ -37,16 +37,16 @@ function postal(x,y) {
 function callbackf(data) {
     var out = document.getElementById('out');
     var code = document.getElementById('code');
-    out.innerHTML = "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\">";
 
-
+// Tableとして整形するため
+//    out.innerHTML = "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\">";
     for( var i = 0; i < data.response.station.length; i++ ) {
 	code.innerHTML +=  data.response.station[i].line + " " + data.response.station[i].name + " " + data.response.station[i].distance + "<br/>";
 
-	out.innerHTML = "<tr width=\"200\"><td>data.response.station[i].line</td><td>data.response.station[i].name</td><td>data.response.station[i].distance</td><tr/>";
+// Tableとして整形するため
+//	out.innerHTML = "<tr width=\"200\"><td>data.response.station[i].line</td><td>data.response.station[i].name</td><td>data.response.station[i].distance</td><tr/>";
 
     }
-    out.innerHTML = "</table>";
-
-
+// Tableとして整形するため
+//    out.innerHTML = "</table>";
 }
