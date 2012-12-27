@@ -1,5 +1,6 @@
 google.load("maps", "2.x");
 
+
 // 現在地表示
 function initialize() {
     if (navigator.geolocation) {
@@ -14,6 +15,13 @@ function showPosition(position) {
     document.getElementById("location").innerHTML = "(" + position.coords.latitude + ", " + position.coords.longitude + ")";
 
     postal(position.coords.longitude, position.coords.latitude);
+    var latlng = new google.maps.LatLng(position.coords.longitude, position.coords.latitude);
+    var opts = {
+	zoom: 13,
+	center: latlng,
+	mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),opts);
 }
 
 function handleError(error) {
@@ -50,3 +58,5 @@ function callbackf(data) {
 // Tableとして整形するため
 //    out.innerHTML = "</table>";
 }
+
+
