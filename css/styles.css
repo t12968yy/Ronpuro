@@ -28,7 +28,7 @@ table.class1 {
 }
 
 div#main {
-    margin-left:150px; /* ナビゲーションボックスの幅の分マージンを取る */
+/*    margin-left:150px; ナビゲーションボックスの幅の分マージンを取る */
     height:100%;
     width:100%;
     _overflow:auto;
@@ -41,7 +41,7 @@ div#navi {
     position:fixed;
     _position:absolute;
     top:0px;
-    left:0px;
+    right:0px;
     background-color:#F0F8FF;
     color:black;
 }
