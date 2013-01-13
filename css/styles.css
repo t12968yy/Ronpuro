@@ -20,7 +20,8 @@ p.class1 {
 }
 p.class2 {
 	 font-style:italic;
-	 font-color:"red";
+	 color:red;
+	 text-decoration:underline;
 }
 table.class1 {
 	     font-size:30px;
