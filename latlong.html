@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=shift__jis">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <meta http-equiv="Content-Style-Type" content="text/css">
-    <title>現在地を用いて駅探</title>
+    <title>Nearest Train Station Using GPS </title>
     <!-- localhost 用のキー使用 -->
 <!--    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAnfs7bKE82qgb3Zc2YyS-oBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSySz_REpPq-4WZA27OwgbtyR3VcA"></script>-->
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
@@ -15,11 +16,17 @@
   <body onload="GUnload()">
     <div id="main">
       <link rel="stylesheet" type="text/css" href="css/styles.css">
-      <h1>現在地</h1>
+      <h1>Location</h1>
+      <h2>Your current location</h2>
       <div id="location"></div>
+      <h2>Your current address</h2>
+      <div id="address"></div>
+
+      <h2>Stations Near by</h2>
       <div id="code"></div>
+      <div id="map_canvas" style="width:500px;height:300px"></div>
       <div id="out"></div>
-      <div id="map_canvas" style="width:500px;height:400px"></div>
+
     </div>
     <div id="navi">
 
