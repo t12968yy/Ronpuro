@@ -29,7 +29,7 @@ table.class1 {
 
 div#main {
 /*    margin-left:150px; ナビゲーションボックスの幅の分マージンを取る */
-    height:100%;
+    height:1000px;
     width:100%;
     _overflow:auto;
     position:fixed;
