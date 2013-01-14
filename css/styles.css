@@ -1,5 +1,6 @@
 html {
     _overflow:hidden;
+
 }
 body {
     _height:100%;
@@ -30,13 +31,13 @@ table.class1 {
 div#main {
 /*    margin-left:150px; ナビゲーションボックスの幅の分マージンを取る */
     height:100%;
-    width:800px;
+    width:80%;
     _overflow:auto;
     position:fixed;
     background-color:#8FBC8F;
 }
 div#navi {
-    width:150px;
+    width:20%;
     height:100%;
     position:fixed;
     _position:absolute;
