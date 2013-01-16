@@ -40,7 +40,7 @@ div#navi {
     width:20%;
     height:100%;
     position:fixed;
-
+    _position:absolute;
     top:0px;
     right:0px;
     background-color:#F0F8FF;
