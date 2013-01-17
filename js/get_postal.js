@@ -15,6 +15,7 @@ function showPosition(position) {
     document.getElementById("location").innerHTML = "Latitude : " + position.coords.latitude + "<br/>Longitude : " + position.coords.longitude + "<br/>";
     showAddress(position.coords.latitude,position.coords.longitude);
     postal(position.coords.longitude, position.coords.latitude);
+    map(position.coords.longitude, position.coords.latitude);
 }
 
 function handleError(error) {
@@ -55,15 +56,6 @@ function postal(x,y) {
         + "&jsonp=callbackf";
     document.body.appendChild(target);
 
-    var latlng = new google.maps.LatLng(x,y);
-/*    var opts = {
-	zoom: 8,
-	mapTypeId: google.maps.MapTypeId.ROADMAP,
-	center: latlng
-    };*/
-//    var map = new google.maps.Map(document.getElementById('map_canvas'),opts);
-    var map = new google.maps.Map(document.getElementById('map_canvas'));
-
 }
 function callbackf(data) {
     var out = document.getElementById('out');
@@ -86,4 +78,15 @@ function callbackf(data) {
 
 }
 
+function map(x,y) {
+    //緯度・経度
+    var myLatlng = new google.maps.LatLng(y,x);
+    var myOptions = {
+	zoom: 16,
+	center: myLatlng,
+	mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
 
+    //キャンバス
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+}
