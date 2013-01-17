@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">-->
+  <title>論理思考とプログラミング最終課題</title>
+  <!-- IEでHTML5のタグを認識するための処理 -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+</head>
+
+<body>
+  <!-- cssの読み込み -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <!-- Javascriptの読み込み -->
+  <script src="./js/script.js"></script>
+  <script src="./js/get_station.js"></script>
+  <script src="./data/bus.js"></script>
+  <script src="./data/partners.js"></script>
+
+  <!-- プルダウン -->
+  <form name="bus">
+    <select onChange="get_bus()" name="stop_name">
+      <OPTION selected>====== 選択してください ======</OPTION>
+      <OPTION value="港南中央">港南中央</OPTION>
+      <OPTION value="上大岡">上大岡</OPTION>
+      <OPTION value="公務員住宅入口/上永谷駅前">公務員住宅入口/上永谷駅前</OPTION>
+      <OPTION value="公務員住宅入口/上大岡駅前">公務員住宅入口/上大岡駅前</OPTION>
+      <OPTION value="湘南台駅西口/(急行)慶応大学中高部前">湘南台駅西口/(急行)慶応大学中高部前</OPTION>
+      <OPTION value="湘南台駅西口/慶応大学中高部前">湘南台駅西口/慶応大学中高部前</OPTION>
+      <OPTION value="慶応大学/(急行)湘南台駅西口">慶応大学/湘南台駅西口(急行)</OPTION>
+      <OPTION value="慶応大学/湘南台駅西口">慶応大学/湘南台駅西口</OPTION>
+      <OPTION value="慶応大学本館前/(急行)湘南台駅西口">慶応大学本館前/湘南台駅西口(急行)</OPTION>
+      <OPTION value="慶応大学本館前/湘南台駅西口">慶応大学本館前/湘南台駅西口</OPTION>
+      <OPTION value="慶応大学本館前/辻堂駅北口">慶応大学本館前/辻堂駅北口</OPTION>
+    </select>
+  </form>
+
+<!-- innerHTML -->
+  <div id="destination">Final Destination</div>
+  <div id="time">
+    <table border="0" align="left" style="table-layout: fixed;">
+      <tr width="200">
+	<td>Bus Arrival</td>
+	<td>=></td>
+        <td></td>
+      </tr>
+      <tr width="50">
+        <td>Present time</td>
+        <td>=></td>
+        <td></td>
+      </tr>
+      <tr width="50">
+        <td>Time Left</td>
+        <td> =></td>
+        <td></td>
+      </tr>
+    </table>
+ </div>
+<br/><br/><br/><br/>
+
+
+<form name="form">
+<select name="pref" onChange="setMenuItem(0,this[this.selectedIndex].value)">
+  <option value="0" selected>-----
+  <option value="1">北海道<option value="2">青森県<option value="3">岩手県
+  <option value="4">宮城県<option value="5">秋田県<option value="6">山形県
+  <option value="7">福島県<option value="8">茨城県<option value="9">栃木県
+  <option value="10">群馬県<option value="11">埼玉県<option value="12">千葉県
+  <option value="13">東京都<option value="14">神奈川県<option value="15">新潟県
+  <option value="16">富山県<option value="17">石川県<option value="18">福井県
+  <option value="19">山梨県<option value="20">長野県<option value="21">岐阜県
+  <option value="22">静岡県<option value="23">愛知県<option value="24">三重県
+  <option value="25">滋賀県<option value="26">京都府<option value="27">大阪府
+  <option value="28">兵庫県<option value="29">奈良県<option value="30">和歌山県
+  <option value="31">鳥取県<option value="32">島根県<option value="33">岡山県
+  <option value="34">広島県<option value="35">山口県<option value="36">徳島県
+  <option value="37">香川県<option value="38">愛媛県<option value="39">高知県
+  <option value="40">福岡県<option value="41">佐賀県<option value="42">長崎県
+  <option value="43">熊本県<option value="44">大分県<option value="45">宮崎県
+  <option value="46">鹿児島県<option value="47">沖縄県
+</select>
+<select name="s0" onChange="setMenuItem(1,this[this.selectedIndex].value)">
+  <option selected>----
+</select>
+<select name="s1" onChange='myFunc(this[this.selectedIndex])'>
+  <option selected>----
+</select>
+</form>
+
+<!-- 区切り線 -->
+<hr size="3" color="#ffaaaa" width="80%" >
+
+</body>
+</html>
