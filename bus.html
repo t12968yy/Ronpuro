@@ -25,6 +25,7 @@
     <script src="./data/bus.js"></script>
     <script src="./data/partners.js"></script>
 
+<!-- 最寄りの時間 -->
     <!-- プルダウン -->
     <form name="bus">
       <select onChange="get_bus()" name="stop_name">
@@ -46,34 +47,36 @@
     <!-- innerHTML -->
     <div id="destination">Final Destination</div>
     <div id="time">
-      <table class="class1" border="0" align="left" style="table-layout: fixed;">
+      <table class="class1" border="0" align="left" style="table-layout:fixed;">
 	<tr width="200">
 	  <td>Bus Arrival</td>
-	  <td>=></td>
+	  <td>=&gt;</td>
           <td></td>
         </tr>
         <tr width="50">
           <td>Present time</td>
-          <td>=></td>
-          <td></td>
+          <td>=&gt;</td>
+	  <td></td>
         </tr>
         <tr width="50">
           <td>Time Left</td>
-          <td> =></td>
+          <td>=&gt;</td>
           <td></td>
         </tr>
       </table>
+    </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <div id="Timeframe"></div></br>
     </div>
 
-<div id="navi">
-  <ul>
-    <li><a href="./index.html"><span>Home</span></a></li>
-    <li><a href="./bus.html"><span>Bus</span></a></li>
-    <li><a href="./train.html"><span>Train</span></a></li>
-    <li><a href="latlong.html"><span>Location</span></a></li>
-    <li><a href="https://github.com/t12968yy/Ronpuro" target="_top"><span>About</span></a></li>
-    <li><a href="#"><span>Contact</span></a></li>
-  </ul>
-</div>
+  <div id="navi">
+    <ul>
+      <li><a href="./index.html"><span>Home</span></a></li>
+      <li><a href="./bus.html"><span>Bus</span></a></li>
+      <li><a href="./train.html"><span>Train</span></a></li>
+      <li><a href="latlong.html"><span>Location</span></a></li>
+      <li><a href="https://github.com/t12968yy/Ronpuro" target="_top"><span>About</span></a></li>
+      <li><a href="#"><span>Contact</span></a></li>
+    </ul>
+  </div>
 </body>
 </html>

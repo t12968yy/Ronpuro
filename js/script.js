@@ -75,6 +75,24 @@ function get_bus_stop(hoge) {
     return out;
 }
 
+function bus_timeline(hoge) {
+    /// 時刻表に登録されている「時間」ごとに
+    var hour_length = hoge.length;
+    var out;
+
+    for ( var h = 0; h < hour_length; h++ ) {
+	out += "   " + hoge[h][0] + "<br/>";
+	var minute_length = hoge[h].length;
+
+	/// 時刻表に登録されている「分」ごとに
+        for ( var m = 1; m < minute_length; m++ ) {
+	    /// バスの時間を計算しやすくするように変換
+	    out += hoge[h][m] + "  ";
+        }
+	out += "<br/>";
+    }
+    return out;
+}
 
 function get_bus() {
 // pulldownからバス停の情報取得
@@ -84,6 +102,7 @@ function get_bus() {
 // innerHTML用に情報取得
     var destination = document.getElementById('destination');
     var time        =  document.getElementById('time');
+    var timeline    = document.getElementById("Timeframe");
 
 // 現在時間の取得
     var Jikan    = new Date();
@@ -102,21 +121,26 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else if ( Day == 6 ) { //SAT
-		bus_stop =  get_bus_stop(keiouniv_syounandai_kyuukou_sat);
+		bus_stop = get_bus_stop(keiouniv_syounandai_kyuukou_sat);
+		bus_time = bus_timeline(keiouniv_syounandai_kyuukou_sat);
             }
             else {
-		bus_stop =  get_bus_stop(keiouniv_syounandai_kyuukou_weekday);
+		bus_stop = get_bus_stop(keiouniv_syounandai_kyuukou_weekday);
+		bus_time = bus_timeline(keiouniv_syounandai_kyuukou_weekday);
             }
 	}
 	else if ( stop == "慶応大学/湘南台駅西口" ) {
             if ( Day == 0 ) { ///SUN
-		bus_stop =  get_bus_stop(keiouniv_syounandai_norm_sun);
+		bus_stop = get_bus_stop(keiouniv_syounandai_norm_sun);
+		bus_time = bus_timeline(keiouniv_syounandai_norm_sun);
             }
             else if ( Day == 6 ) { //SAT
-		bus_stop =  get_bus_stop(keiouniv_syounandai_norm_sat);
+		bus_stop = get_bus_stop(keiouniv_syounandai_norm_sat);
+		bus_time = bus_timeline(keiouniv_syounandai_norm_sat);
             }
             else {
-		bus_stop =  get_bus_stop(keiouniv_syounandai_norm_weekday);
+		bus_stop = get_bus_stop(keiouniv_syounandai_norm_weekday);
+		bus_time = bus_timeline(keiouniv_syounandai_norm_weekday);
             }
 	}
 	else if ( stop == "慶応大学本館前/湘南台駅西口" ) {
@@ -124,10 +148,12 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else if ( Day == 6 ) {
-		bus_stop =  get_bus_stop(keiomain_syounandai_norm_sat);
+		bus_stop = get_bus_stop(keiomain_syounandai_norm_sat);
+		bus_time = bus_timelinep(keiomain_syounandai_norm_sat);
             }
             else {
-		bus_stop =  get_bus_stop(keiomain_syounandai_norm_weekday);
+		bus_stop = get_bus_stop(keiomain_syounandai_norm_weekday);
+		bus_time = bus_timeline(keiomain_syounandai_norm_weekday);
             }
 	}
 	else if ( stop == "慶応大学本館前/辻堂駅北口" ) {
@@ -138,7 +164,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop =  get_bus_stop(keiomain_tujidou_weekday);
+		bus_stop = get_bus_stop(keiomain_tujidou_weekday);
+		bus_time = bus_timeline(keiomain_tujidou_weekday);
             }
 	}
 	else if ( stop == "公務員住宅入口/上永谷駅前" ) {
@@ -149,7 +176,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop =  get_bus_stop(koumuinn_kaminagaya_weekday);
+		bus_stop = get_bus_stop(koumuinn_kaminagaya_weekday);
+		bus_time = bus_timeline(koumuinn_kaminagaya_weekday);
             }
 	}
 	else if ( stop == "公務員住宅入口/上大岡駅前" ) {
@@ -160,7 +188,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop =  get_bus_stop(koumuinn_kamioooka_weekday);
+		bus_stop = get_bus_stop(koumuinn_kamioooka_weekday);
+		bus_time = bus_timeline(koumuinn_kamioooka_weekday);
             }
 	}
 	else if ( stop == "慶応大学本館前/(急行)湘南台駅西口" ) {
@@ -168,10 +197,12 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else if ( Day == 6 ) { //SAT
-		bus_stop =  get_bus_stop(keiomain_syounandai_kyuukou_sat);
+		bus_stop = get_bus_stop(keiomain_syounandai_kyuukou_sat);
+		bus_time = bus_timeline(keiomain_syounandai_kyuukou_sat);
             }
             else {
-		bus_stop =  get_bus_stop(keiomain_syounandai_kyuukou_weekday);
+		bus_stop = get_bus_stop(keiomain_syounandai_kyuukou_weekday);
+		bus_time = bus_timeline(keiomain_syounandai_kyuukou_weekday);
             }
 	}
 	else if ( stop == "湘南台駅西口/慶応大学中高部前" ) {
@@ -182,7 +213,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop =  get_bus_stop(syounandai_keiomain_norm_weekday);
+		bus_stop = get_bus_stop(syounandai_keiomain_norm_weekday);
+		bus_time = bus_timeline(syounandai_keiomain_norm_weekday);
             }
 	}
 	else if ( stop == "湘南台駅西口/(急行)慶応大学中高部前" ) {
@@ -193,11 +225,13 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop =  get_bus_stop(syounandai_keiomain_kyuukou_weekday);
+		bus_stop = get_bus_stop(syounandai_keiomain_kyuukou_weekday);
+		bus_time = bus_timeline(syounandai_keiomain_kyuukou_weekday);
             }
 	}
     }
-    time.innerHTML = bus_stop;
+    time.innerHTML   = bus_stop;
+    timeline.innerHTML = bus_time;
 }
 /*
 function index_find() {
