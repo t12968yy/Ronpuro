@@ -1,5 +1,6 @@
 ./tmp
 ./js/tmp
 ./data/*~
+./images
 *~
 .*
