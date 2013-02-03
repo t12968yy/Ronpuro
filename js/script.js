@@ -78,17 +78,31 @@ function get_bus_stop(hoge) {
 function bus_timeline(hoge) {
     /// 時刻表に登録されている「時間」ごとに
     var hour_length = hoge.length;
-    var out;
+    var out = "<br/>";
 
     for ( var h = 0; h < hour_length; h++ ) {
-	out += "   " + hoge[h][0] + "<br/>";
-	var minute_length = hoge[h].length;
+	var hour = hoge[h][0];
 
-	/// 時刻表に登録されている「分」ごとに
-        for ( var m = 1; m < minute_length; m++ ) {
-	    /// バスの時間を計算しやすくするように変換
-	    out += hoge[h][m] + "  ";
-        }
+	if ( String(hour).length == 1 ) {
+	    hour = "0"+String(hour);
+	}
+	out += "" + hour;
+
+	var minute_length = hoge[h].length;
+	if( minute_length == 1 ) {
+	    out += "_x";
+	}
+	else {
+	    /// 時刻表に登録されている「分」ごとに
+            for ( var m = 1; m < minute_length; m++ ) {
+		/// バスの時間を計算しやすくするように変換
+		var min = hoge[h][m];
+		if ( String(min).length == 1 ) {
+		    min = "0"+String(min);
+		}
+		out += "___" + min;
+            }
+	}
 	out += "<br/>";
     }
     return out;
@@ -117,7 +131,7 @@ function get_bus() {
 	var bus_stop;
 
 	if ( stop == "慶応大学/(急行)湘南台駅西口" ) {
-            if ( Day == 0 ) { ///SUN
+            if ( Day == 4 ) { ///SUN
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else if ( Day == 6 ) { //SAT
