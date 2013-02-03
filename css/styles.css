@@ -34,7 +34,8 @@ div#main {
     width:80%;
     _overflow:auto;
     position:fixed;
-    background-color:#8FBC8F;
+/*    background-color:#8FBC8F;*/
+      background-color:"white";
 }
 div#navi {
     width:20%;
