@@ -134,7 +134,10 @@ function get_bus() {
 	destination.innerHTML = stop;
 
 //データベースを増やしていけばok
-	var bus_stop;
+//	var bus_stop = "";
+//	var bus_time = "";
+
+
 
 	if ( stop == "慶応大学/(急行)湘南台駅西口" ) {
             if ( Day == 0 ) { ///SUN
@@ -239,15 +242,19 @@ function get_bus() {
 	}
 	else if ( stop == "湘南台駅西口/(急行)慶応大学中高部前" ) {
             if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
+		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else if ( Day == 6 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
+		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
 		bus_stop = get_bus_stop(syounandai_keiomain_kyuukou_weekday);
 		bus_time = bus_timeline(syounandai_keiomain_kyuukou_weekday);
             }
+	}
+	else if ( stop == "Origin" ) {
+	    alert(stop);
+	    bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>Not Selected</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>Not Selected</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
 	}
     }
     time.innerHTML   = bus_stop;
