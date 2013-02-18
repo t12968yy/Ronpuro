@@ -249,10 +249,8 @@ var Bus_Stop_Name = {
 			'Saturday' : 'B8_sat',
 			'Sunday' : 'B8_sun'
                     }
-		}
-	    },
-	    '慶応大学中高部前' : {
-		'急行' : {
+		},
+	    	'急行' : {
 		    'Time' : {
 			'Weekday' : [ // B9_weekday // 慶応大学本館前 湘南台駅西口 急行 平日
 			    [7,24,35,48,53,58],
