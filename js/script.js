@@ -118,6 +118,17 @@ function bus_timeline(hoge) {
     return out;
 }
 
+// 親pulldownの作成
+function Make_pulldown_P() {
+    var out = document.getElementById('parentS');
+    var htm="<select onChange=\"Make_pulldown_C(this.form)\" name=\"stop_name\" id=\"parentS\" style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
+    for ( i in Bus_Stop_Name ) {
+	htm += "<option value='"+i+"'>"+Bus_Stop_Name[i]['Name']+"<\/option>";
+    }
+    htm+="<\/select>";
+// HTML出力
+    out.innerHTML=htm;
+}
 
 // 子供pulldownの作成
 function Make_pulldown_C(frmObj) {
@@ -143,10 +154,10 @@ function Make_pulldown_C(frmObj) {
 
 // 孫pulldownの作成
 function Make_pulldown_GC(frmObj) {
-    var pObj = frmObj.elements["childS"].options;
-    var pObj_old = document.getElementById('parentS').value;
-    var out  = document.getElementById('grandchildS');
-    var htm  = "<select onChange=\"get_bus()\" name='status_name' style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
+    var pObj     = frmObj.elements["childS"].options;
+    var pObj_old = document.bus.stop_name.value;
+    var out      = document.getElementById('grandchildS');
+    var htm      = "<select onChange=\"get_bus()\" name='status_name' style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
 
 // 子供ジャンルのoption数
     var pObjLen=pObj.length;
@@ -165,7 +176,6 @@ function Make_pulldown_GC(frmObj) {
 }
 
 function get_bus() {
-
 // pulldownからバス停の情報取得
     var obj          = document.bus.stop_name;
     var index        = obj.selectedIndex;

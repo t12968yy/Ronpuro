@@ -80,7 +80,7 @@ var Bus_Stop_Name = {
 	}
     },
     '2' : {
-	'Name ' : '慶應大学本館前',
+	'Name' : '慶應大学本館前',
 	'Destination' : {
 	    '湘南台駅西口' : {
 		'普通' : {
