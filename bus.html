@@ -24,29 +24,25 @@
     <script src="./js/get_station.js"></script>
     <script src="./data/bus.js"></script>
     <script src="./data/partners.js"></script>
+    <script src="./data/data_seq.js"></script>
 
 <!-- 最寄りの時間 -->
     <!-- プルダウン -->
     <form name="bus">
-      <select onChange="get_bus()" name="stop_name">
-	<OPTION value="Origin" selected>====== 選択してください ======</OPTION>
-	<OPTION value="上大岡">上大岡</OPTION>
-	<OPTION value="1">慶応大学/湘南台駅西口(急行)</OPTION>
-	<OPTION value="2">慶応大学/湘南台駅西口</OPTION>
-
-	<OPTION value="3">慶応大学本館前/湘南台駅西口</OPTION>
-	<OPTION value="4">慶応大学本館前/辻堂駅北口</OPTION>
-	<OPTION value="7">慶応大学本館前/湘南台駅西口(急行)</OPTION>
-
-	<OPTION value="5">公務員住宅入口/上永谷駅前</OPTION>
-	<OPTION value="6">公務員住宅入口/上大岡駅前</OPTION>
-
-	<OPTION value="8">湘南台駅西口/慶応大学中高部前</OPTION>
-	<OPTION value="9">湘南台駅西口/(急行)慶応大学中高部前</OPTION>
-
-	<OPTION value="10">野場中央公園行き/港南中央</OPTION>
+      <select onChange="Make_pulldown_C(this.form)" id="parentS" name="stop_name">
+	<option value="Origin" selected>====== 選択してください ======</option>
+	<option value="上大岡">上大岡</option>
+	<option value="1">慶応大学</option>
+	<option value="2">慶応大学本館前</option>
+	<option value="3">公務員住宅入口</option>
+	<option value="4">湘南台駅西口</option>
+	<option value="5">野場中央公園行き</option>
       </select>
+      <div id="childS"></div>
+      <div id="grandchildS"></div>
     </form>
+
+
     <!-- innerHTML -->
     <div id="destination">Final Destination</div>
     <div id="time">

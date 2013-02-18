@@ -118,11 +118,60 @@ function bus_timeline(hoge) {
     // 出力
     return out;
 }
+// 子供pulldownの作成
+function Make_pulldown_C(frmObj) {
+    var pObj = frmObj.elements["parentS"].options;
+    var out  = document.getElementById('childS');
+    var htm="<select onChange=\"Make_pulldown_GC(this.form)\" name=\"destination_name\" id=\"childS\" style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
+
+    /* 親ジャンルのoption数 */
+//    var pObj = frmObj.elements["parentS"].options;
+    var pObjLen=pObj.length;
+
+    for(i=0; i<pObjLen; i++ ) {
+        /* 親ジャンルの選択値を取得 */
+        if(pObj[i].selected == 1){
+	    for ( j in Bus_Stop_Name[pObj[i].value]['Destination'] ) {
+		var query = j;
+                htm += "<option value='"+j+"'>"+j+"<\/option>";
+	    }
+        }
+    }
+    htm+="<\/select>";
+    /* HTML出力 */
+    out.innerHTML=htm;
+}
+// 孫pulldownの作成
+function Make_pulldown_GC(frmObj) {
+    var pObj = frmObj.elements["childS"].options;
+    var pObj_old = document.getElementById('parentS').value;
+    var out  = document.getElementById('grandchildS');
+    var htm  = "<select onChange=\"get_bus()\" name='status_name' style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
+
+    /* 子供ジャンルのoption数 */
+    var pObjLen=pObj.length;
+    for(i=0; i<pObjLen; i++ ) {
+	/* 子供ジャンルの選択値を取得 */
+	if(pObj[i].selected == 1){
+	    for ( j in Bus_Stop_Name[pObj_old]['Destination'][pObj[i].value] ) {
+		var query = j;
+		htm += "<option value='"+j+"'>"+j+"<\/option>";
+	    }
+	}
+    }
+    htm+="<\/select>";
+    /* HTML出力 */
+    out.innerHTML=htm;
+}
 
 function get_bus() {
+
 // pulldownからバス停の情報取得
-    var obj         = document.bus.stop_name;
-    var index       = obj.selectedIndex;
+    var obj          = document.bus.stop_name;
+    var index        = obj.selectedIndex;
+    alert(index);
+    var obj2         = document.bus.destination_name;
+    var obj3         = document.bus.status_name;
 
 // innerHTML用に情報取得
     var destination = document.getElementById('destination');
@@ -141,8 +190,13 @@ function get_bus() {
 
 // バス停の情報の明示化
     if (index != 0) {
-	var stop              = obj.options[index].value;
+	var stop                = obj.options[index].value;
+	var destination         = obj2.value;
+	var status              = obj3.value;
+
 	figure.innerHTML = "";
+
+
 	destination.innerHTML = DATA["BusStopName"][stop] + " " + DATA["Express"][stop];
 
 	if ( Day == 0 ) {
