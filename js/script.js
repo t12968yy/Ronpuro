@@ -1,11 +1,10 @@
-function get_bus_stop(hoge) {
+function get_bus_stop(hoge, stop) {
 //    alert( typeof hoge);
 /// innerHTML
     var time        = document.getElementById('time');
     var destination = document.getElementById('destination');
 
     var figure      = document.getElementById('figure');
-    figure.innerHTML = "";
 
 /// 現在時間の取得
     var Jikan    = new Date();
@@ -62,7 +61,6 @@ function get_bus_stop(hoge) {
 
     var diff = target_time - pre_time;
 
-
 /// innerHTMLに出力
     var out;
     if ( target_time == 1439 ) {
@@ -73,6 +71,7 @@ function get_bus_stop(hoge) {
     }
     else {
 	out = "<table class=\"class1\" border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>" + target_h + ":" + target_m + "</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table>";
+	figure.innerHTML = DATA["BusStopName"][stop] + " ";
 	for ( var i = 0; i< diff; i++ ){
 	    figure.innerHTML += ".";
 	}
@@ -127,8 +126,9 @@ function get_bus() {
 
 // innerHTML用に情報取得
     var destination = document.getElementById('destination');
-    var time        =  document.getElementById('time');
-    var timeline    = document.getElementById("Timeframe");
+    var time        = document.getElementById('time');
+    var timeline    = document.getElementById('Timeframe');
+    var figure      = document.getElementById('figure');
 
 // 現在時間の取得
     var Jikan       = new Date();
@@ -142,11 +142,12 @@ function get_bus() {
 // バス停の情報の明示化
     if (index != 0) {
 	var stop              = obj.options[index].value;
+	figure.innerHTML = "";
 	destination.innerHTML = DATA["BusStopName"][stop] + " " + DATA["Express"][stop];
 
 	if ( Day == 0 ) {
 	    var QUERY    = this["B" + stop + "_sun"];
-	    bus_stop     = get_bus_stop(QUERY);
+	    bus_stop     = get_bus_stop(QUERY),stop;
 	    bus_time     = bus_timeline(QUERY)
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefiend;
@@ -154,7 +155,7 @@ function get_bus() {
 	}
         else if ( Day == 0 ) { //SAT
 	    var QUERY    = this["B" + stop + "_sat"];
-	    bus_stop     = get_bus_stop(QUERY);
+	    bus_stop     = get_bus_stop(QUERY,stop);
 	    bus_time     = bus_timeline(QUERY);
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefined;
@@ -162,7 +163,7 @@ function get_bus() {
         }
         else {
 	    var QUERY    = this["B" + stop + "_weekday"];
-	    bus_stop     = get_bus_stop(QUERY);
+	    bus_stop     = get_bus_stop(QUERY,stop);
 	    bus_time     = bus_timeline(QUERY);
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefined;
