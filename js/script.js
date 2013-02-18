@@ -1,11 +1,12 @@
 function get_bus_stop(hoge) {
 //    alert( typeof hoge);
 /// innerHTML
-    var time        =  document.getElementById('time');
+    var time        = document.getElementById('time');
     var destination = document.getElementById('destination');
-//    var trash       = document.getElementById('trash');
 
-///function get_bus_time(hoge) {
+    var figure      = document.getElementById('figure');
+    figure.innerHTML = "";
+
 /// 現在時間の取得
     var Jikan    = new Date();
     var Hour     = Jikan.getHours();
@@ -67,11 +68,15 @@ function get_bus_stop(hoge) {
     if ( target_time == 1439 ) {
 	out = "<table class=\"class1\" border=\"0\" align=\"left\" style=\"table-layout: fixed;\"><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>Last bus has already departed</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
     }
-    else if ( target_time - pre_time > 180 ) {
+    else if ( diff > 180 ) {
 	out = "<table class=\"class1\" border=\"0\" align=\"left\" style=\"table-layout: fixed;\"><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>There are no buses in the next 3 hours</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
     }
     else {
 	out = "<table class=\"class1\" border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>" + target_h + ":" + target_m + "</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table>";
+	for ( var i = 0; i< diff; i++ ){
+	    figure.innerHTML += ".";
+	}
+	figure.innerHTML += "&#10721;";
     }
     return out;
 }
