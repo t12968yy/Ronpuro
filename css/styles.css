@@ -33,7 +33,7 @@ div#main {
     height:100%;
     width:80%;
     _overflow:auto;
-    position:fixed;
+/*    position:fixed;*/
 /*    background-color:#8FBC8F;*/
       background-color:"white";
 }

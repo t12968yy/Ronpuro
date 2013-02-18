@@ -154,16 +154,16 @@ function get_bus() {
 	}
 	else if ( stop == "2" ) {
             if ( Day == 0 ) { ///SUN
-		bus_stop = get_bus_stop(keiouniv_syounandai_norm_sun);
-		bus_time = bus_timeline(keiouniv_syounandai_norm_sun);
+		bus_stop = get_bus_stop(B2_sun);
+		bus_time = bus_timeline(B2_sun);
             }
             else if ( Day == 6 ) { //SAT
-		bus_stop = get_bus_stop(keiouniv_syounandai_norm_sat);
-		bus_time = bus_timeline(keiouniv_syounandai_norm_sat);
+		bus_stop = get_bus_stop(B2_sat);
+		bus_time = bus_timeline(B2_sat);
             }
             else {
-		bus_stop = get_bus_stop(keiouniv_syounandai_norm_weekday);
-		bus_time = bus_timeline(keiouniv_syounandai_norm_weekday);
+		bus_stop = get_bus_stop(B2_weekday);
+		bus_time = bus_timeline(B2_weekday);
             }
 	}
 	else if ( stop == "3" ) {
@@ -171,12 +171,12 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else if ( Day == 6 ) {
-		bus_stop = get_bus_stop(keiomain_syounandai_norm_sat);
-		bus_time = bus_timelinep(keiomain_syounandai_norm_sat);
+		bus_stop = get_bus_stop(B3_sat);
+		bus_time = bus_timelinep(B3_sat);
             }
             else {
-		bus_stop = get_bus_stop(keiomain_syounandai_norm_weekday);
-		bus_time = bus_timeline(keiomain_syounandai_norm_weekday);
+		bus_stop = get_bus_stop(B3_weekday);
+		bus_time = bus_timeline(B3_weekday);
             }
 	}
 	else if ( stop == "4" ) {
@@ -187,8 +187,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop = get_bus_stop(keiomain_tujidou_weekday);
-		bus_time = bus_timeline(keiomain_tujidou_weekday);
+		bus_stop = get_bus_stop(B4_weekday);
+		bus_time = bus_timeline(B4_weekday);
             }
 	}
 	else if ( stop == "5" ) {
@@ -199,8 +199,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop = get_bus_stop(koumuinn_kaminagaya_weekday);
-		bus_time = bus_timeline(koumuinn_kaminagaya_weekday);
+		bus_stop = get_bus_stop(B5_weekday);
+		bus_time = bus_timeline(B5_weekday);
             }
 	}
 	else if ( stop == "6" ) {
@@ -211,8 +211,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop = get_bus_stop(koumuinn_kamioooka_weekday);
-		bus_time = bus_timeline(koumuinn_kamioooka_weekday);
+		bus_stop = get_bus_stop(B6_weekday);
+		bus_time = bus_timeline(B6_weekday);
             }
 	}
 	else if ( stop == "7" ) {
@@ -220,12 +220,12 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else if ( Day == 6 ) { //SAT
-		bus_stop = get_bus_stop(keiomain_syounandai_kyuukou_sat);
-		bus_time = bus_timeline(keiomain_syounandai_kyuukou_sat);
+		bus_stop = get_bus_stop(B7_sat);
+		bus_time = bus_timeline(B7_sat);
             }
             else {
-		bus_stop = get_bus_stop(keiomain_syounandai_kyuukou_weekday);
-		bus_time = bus_timeline(keiomain_syounandai_kyuukou_weekday);
+		bus_stop = get_bus_stop(B7_weekday);
+		bus_time = bus_timeline(B7_weekday);
             }
 	}
 	else if ( stop == "8" ) {
@@ -236,8 +236,8 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop = get_bus_stop(syounandai_keiomain_norm_weekday);
-		bus_time = bus_timeline(syounandai_keiomain_norm_weekday);
+		bus_stop = get_bus_stop(B8_weekday);
+		bus_time = bus_timeline(B8_weekday);
             }
 	}
 	else if ( stop == "9" ) {
@@ -248,9 +248,21 @@ function get_bus() {
 		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
             }
             else {
-		bus_stop = get_bus_stop(syounandai_keiomain_kyuukou_weekday);
-		bus_time = bus_timeline(syounandai_keiomain_kyuukou_weekday);
+		bus_stop = get_bus_stop(B9_weekday);
+		bus_time = bus_timeline(B9_weekday);
             }
+	}
+	else if ( stop == "10" ){
+	    if ( Day == 0 ) {
+		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
+	    }
+	    else if ( Day == 6 ) {
+		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
+	    }
+	    else {
+		bus_stop = get_bus_stop(B10_weekday);
+		bus_time = bus_timeline(B10_weekday);
+	    }
 	}
 	else if ( stop == "Origin" ) {
 	    alert(stop);
@@ -276,7 +288,7 @@ function index_find() {
 
 	rObj = new RegExp("&#24950;&#24540;&#22823;&#23398;&#26412;&#39208;&#21069;\/&#36795;&#22530;&#39365;&#21271;&#21475;"); // 慶応大学本館前/辻堂駅北口
 	if ( stop_jap.match(rObj) ) { ///正規表現
-	    var stop = "keiomain_tujidou_weekday" ;
+	    var stop = "B4_weekday" ;
 	    // 現在時間の取得
 	    var Jikan    = new Date();
 	    var Day      = Jikan.getDay()
