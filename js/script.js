@@ -131,13 +131,7 @@ function get_bus() {
 // バス停の情報の明示化
     if (index != 0) {
 	var stop = obj.options[index].value;
-	destination.innerHTML = stop;
-
-//データベースを増やしていけばok
-//	var bus_stop = "";
-//	var bus_time = "";
-
-
+	destination.innerHTML = DATA["BusStopName"][stop] + " " + DATA["Express"][stop];
 
 	if ( stop == "1" ) { /// 慶応大学/湘南台駅西口(急行)
             if ( Day == 0 ) { ///SUN

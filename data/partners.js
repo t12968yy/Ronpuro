@@ -1,9 +1,30 @@
-var partners = { 
-    '1'         : 'keiouniv_syounandai',
-    '2'         : 'keiouniv_syounandai_norm',
-    '3'         : 'keiomain_syounandai_norm',
-    '4'         : 'keiomain_tujidou_sat',
-    '5'         : 'koumuinn_kaminagaya',
-    '6'         : "koumuinn_kamioooka"
-    '慶応大学/(急行)湘南台駅西口'       : 'keiouniv_syounandai_kyuukou',
+var Bus_Stop_Name = {
+    '1'         : '慶応大学  湘南台駅西口　急行',
+    '2'         : '慶応大学　湘南台駅西口',
+    '3'         : '慶応大学本館前　湘南台駅西口',
+    '4'         : '応大学本館前　辻堂駅北口',
+    '5'         : '公務員住宅入口　上永谷駅前',
+    '6'         : '公務員住宅入口　上大岡駅前',
+    '7'         : '慶応大学本館前　湘南台駅西口　急行',
+    '8'         : '湘南台駅西口　慶応大学中高部前',
+    '9'         : '湘南台駅西口　慶応大学中高部前　急行',
+    '10'        : '野庭中央公園　港南中央',
+};
+var Express_Status = {
+    '1'         : '急行',
+    '2'         : '普通',
+    '3'         : '普通',
+    '4'         : '普通',
+    '5'         : '普通',
+    '6'         : '普通',
+    '7'         : '急行',
+    '8'         : '普通',
+    '9'         : '急行',
+    '10'        : '普通',
+};
+
+
+var DATA = {
+    "BusStopName" : Bus_Stop_Name,
+    "Express"     : Express_Status,
 };
