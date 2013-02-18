@@ -1,4 +1,5 @@
 function get_bus_stop(hoge) {
+//    alert( typeof hoge);
 /// innerHTML
     var time        =  document.getElementById('time');
     var destination = document.getElementById('destination');
@@ -9,7 +10,7 @@ function get_bus_stop(hoge) {
     var Jikan    = new Date();
     var Hour     = Jikan.getHours();
     var Minute   = Jikan.getMinutes();
-    var Day      = Jikan.getDay()
+    var Day      = Jikan.getDay();
     var pre_time = Hour * 60 + Minute;
 
 /// 出力用の変数設定
@@ -82,19 +83,19 @@ function bus_timeline(hoge) {
     // その路線が存在する時間をfor分で
     var hour_length = hoge.length;
     for ( var h = 0; h < hour_length; h++ ) {
-	out += "<tr>";
+	out      += "<tr>";
 
 	var hour = hoge[h][0];
 	// 一桁の数字を全て0をつけて二桁に
 	if ( String(hour).length == 1 ) {
 	    hour = "0"+String(hour);
 	}
-	out += "<td>" + hour + "</td><td>:</td>";
+	out      += "<td>" + hour + "</td><td>:</td>";
 
 	// その時間でバスが一個も無かった場合
 	var minute_length = hoge[h].length;
 	if( minute_length == 1 ) {
-	    out += "<td>x</td>";
+	    out  += "<td>x</td>";
 	}
 	else {
 	    /// 時刻表に登録されている「分」ごとに
@@ -116,8 +117,8 @@ function bus_timeline(hoge) {
 
 function get_bus() {
 // pulldownからバス停の情報取得
-    var obj = document.bus.stop_name;
-    var index = obj.selectedIndex;
+    var obj         = document.bus.stop_name;
+    var index       = obj.selectedIndex;
 
 // innerHTML用に情報取得
     var destination = document.getElementById('destination');
@@ -125,182 +126,44 @@ function get_bus() {
     var timeline    = document.getElementById("Timeframe");
 
 // 現在時間の取得
-    var Jikan    = new Date();
-    var Day      = Jikan.getDay()
+    var Jikan       = new Date();
+    var Day         = Jikan.getDay()
+    var Hour        = Jikan.getHours();
+    var Minute      = Jikan.getMinutes();
+
+// Undefiend時のbus_stopのエスケープ
+    var bus_stop_undefined = "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + Hour + ":" + Minute + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
 
 // バス停の情報の明示化
     if (index != 0) {
-	var stop = obj.options[index].value;
+	var stop              = obj.options[index].value;
 	destination.innerHTML = DATA["BusStopName"][stop] + " " + DATA["Express"][stop];
 
-	if ( stop == "1" ) { /// 慶応大学/湘南台駅西口(急行)
-            if ( Day == 0 ) { ///SUN
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) { //SAT
-		bus_stop = get_bus_stop(B1_sat);
-		bus_time = bus_timeline(B1_sat);
-            }
-            else {
-		bus_stop = get_bus_stop(B1_weekday);
-		bus_time = bus_timeline(B1_weekday);
-            }
-	}
-	else if ( stop == "2" ) {
-            if ( Day == 0 ) { ///SUN
-		bus_stop = get_bus_stop(B2_sun);
-		bus_time = bus_timeline(B2_sun);
-            }
-            else if ( Day == 6 ) { //SAT
-		bus_stop = get_bus_stop(B2_sat);
-		bus_time = bus_timeline(B2_sat);
-            }
-            else {
-		bus_stop = get_bus_stop(B2_weekday);
-		bus_time = bus_timeline(B2_weekday);
-            }
-	}
-	else if ( stop == "3" ) {
-            if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) {
-		bus_stop = get_bus_stop(B3_sat);
-		bus_time = bus_timelinep(B3_sat);
-            }
-            else {
-		bus_stop = get_bus_stop(B3_weekday);
-		bus_time = bus_timeline(B3_weekday);
-            }
-	}
-	else if ( stop == "4" ) {
-            if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else {
-		bus_stop = get_bus_stop(B4_weekday);
-		bus_time = bus_timeline(B4_weekday);
-            }
-	}
-	else if ( stop == "5" ) {
-            if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else {
-		bus_stop = get_bus_stop(B5_weekday);
-		bus_time = bus_timeline(B5_weekday);
-            }
-	}
-	else if ( stop == "6" ) {
-            if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else {
-		bus_stop = get_bus_stop(B6_weekday);
-		bus_time = bus_timeline(B6_weekday);
-            }
-	}
-	else if ( stop == "7" ) {
-            if ( Day == 0 ) { ///SUN
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) { //SAT
-		bus_stop = get_bus_stop(B7_sat);
-		bus_time = bus_timeline(B7_sat);
-            }
-            else {
-		bus_stop = get_bus_stop(B7_weekday);
-		bus_time = bus_timeline(B7_weekday);
-            }
-	}
-	else if ( stop == "8" ) {
-            if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else {
-		bus_stop = get_bus_stop(B8_weekday);
-		bus_time = bus_timeline(B8_weekday);
-            }
-	}
-	else if ( stop == "9" ) {
-            if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else if ( Day == 6 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Saturdays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-            }
-            else {
-		bus_stop = get_bus_stop(B9_weekday);
-		bus_time = bus_timeline(B9_weekday);
-            }
-	}
-	else if ( stop == "10" ){
-	    if ( Day == 0 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-	    }
-	    else if ( Day == 6 ) {
-		bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>No Buses on this line on Sundays</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>NA</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-	    }
-	    else {
-		bus_stop = get_bus_stop(B10_weekday);
-		bus_time = bus_timeline(B10_weekday);
+	if ( Day == 0 ) {
+	    var QUERY    = this["B" + stop + "_sun"];
+	    bus_stop     = get_bus_stop(QUERY);
+	    bus_time     = bus_timeline(QUERY)
+	    if ( typeof bus_stop == 'undefined' ) {
+		bus_stop = bus_stop_undefiend;
 	    }
 	}
-	else if ( stop == "Origin" ) {
-	    alert(stop);
-	    bus_stop =  "<table border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>Not Selected</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>Not Selected</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>NaN</td></tr></table>";
-	}
-    }
-    time.innerHTML   = bus_stop;
-    timeline.innerHTML = bus_time;
-}
-/*
-function index_find() {
-    var query = document.getElementById('index').value;
-    var index_out = document.getElementById('index_result');
-
-/// 登録されているバス停の取得
-    var obj = document.bus.stop_name;
-    var stop = [];
-    stop_array = obj.options;
-
-/// for文でまわして、正規表現で検索？
-    for ( var i = 0; i < stop_array.length; i++ ) {
-	var stop_jap = stop_array[i].value;
-
-	rObj = new RegExp("&#24950;&#24540;&#22823;&#23398;&#26412;&#39208;&#21069;\/&#36795;&#22530;&#39365;&#21271;&#21475;"); // 慶応大学本館前/辻堂駅北口
-	if ( stop_jap.match(rObj) ) { ///正規表現
-	    var stop = "B4_weekday" ;
-	    // 現在時間の取得
-	    var Jikan    = new Date();
-	    var Day      = Jikan.getDay()
-
-	    if ( Day == 0 ) {
-		index_out.innerHTML = "No Buses on this line on Sundays";
+        else if ( Day == 0 ) { //SAT
+	    var QUERY    = this["B" + stop + "_sat"];
+	    bus_stop     = get_bus_stop(QUERY);
+	    bus_time     = bus_timeline(QUERY);
+	    if ( typeof bus_stop == 'undefined' ) {
+		bus_stop = bus_stop_undefined;
 	    }
-	    else if ( Day == 6 ) {
-	        index_out.innerHTML = "No Buses on this line on Saturdays";	
+        }
+        else {
+	    var QUERY    = this["B" + stop + "_weekday"];
+	    bus_stop     = get_bus_stop(QUERY);
+	    bus_time     = bus_timeline(QUERY);
+	    if ( typeof bus_stop == 'undefined' ) {
+		bus_stop = bus_stop_undefined;
 	    }
-	    else {
-		var bus_stop =  get_bus(stop)
-		index_out.innerHTML = bus_stop + "hoge";
-	    }
-	}
-	else {
-	    index_out.innerHTML = "The bus stop you indexed has not been registered";
-	}
+        }
+	time.innerHTML     = bus_stop;
+	timeline.innerHTML = bus_time;
     }
 }
-*/
