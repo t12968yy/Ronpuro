@@ -25,8 +25,7 @@ function get_bus_stop(hoge, stop) {
 
 /// その「時間」にバスが無かった場合
 	if ( minute_length == 1 ) {
-///		    alert("No buses this hour");  この例外処理はいらない？
-	    // next;みたいのないかな？
+	    // とりあえずここの処理無くても動くっぽいので後回し //
 	}
 	else {
 
@@ -118,18 +117,18 @@ function bus_timeline(hoge) {
     // 出力
     return out;
 }
+
+
 // 子供pulldownの作成
 function Make_pulldown_C(frmObj) {
     var pObj = frmObj.elements["parentS"].options;
     var out  = document.getElementById('childS');
     var htm="<select onChange=\"Make_pulldown_GC(this.form)\" name=\"destination_name\" id=\"childS\" style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
 
-    /* 親ジャンルのoption数 */
-//    var pObj = frmObj.elements["parentS"].options;
+// 親ジャンルのoption数
     var pObjLen=pObj.length;
-
     for(i=0; i<pObjLen; i++ ) {
-        /* 親ジャンルの選択値を取得 */
+// 親ジャンルの選択値を取得
         if(pObj[i].selected == 1){
 	    for ( j in Bus_Stop_Name[pObj[i].value]['Destination'] ) {
 		var query = j;
@@ -138,9 +137,10 @@ function Make_pulldown_C(frmObj) {
         }
     }
     htm+="<\/select>";
-    /* HTML出力 */
+// HTML出力
     out.innerHTML=htm;
 }
+
 // 孫pulldownの作成
 function Make_pulldown_GC(frmObj) {
     var pObj = frmObj.elements["childS"].options;
@@ -148,10 +148,10 @@ function Make_pulldown_GC(frmObj) {
     var out  = document.getElementById('grandchildS');
     var htm  = "<select onChange=\"get_bus()\" name='status_name' style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
 
-    /* 子供ジャンルのoption数 */
+// 子供ジャンルのoption数
     var pObjLen=pObj.length;
     for(i=0; i<pObjLen; i++ ) {
-	/* 子供ジャンルの選択値を取得 */
+// 子供ジャンルの選択値を取得
 	if(pObj[i].selected == 1){
 	    for ( j in Bus_Stop_Name[pObj_old]['Destination'][pObj[i].value] ) {
 		var query = j;
@@ -160,7 +160,7 @@ function Make_pulldown_GC(frmObj) {
 	}
     }
     htm+="<\/select>";
-    /* HTML出力 */
+// HTML出力
     out.innerHTML=htm;
 }
 
@@ -169,7 +169,6 @@ function get_bus() {
 // pulldownからバス停の情報取得
     var obj          = document.bus.stop_name;
     var index        = obj.selectedIndex;
-    alert(index);
     var obj2         = document.bus.destination_name;
     var obj3         = document.bus.status_name;
 
@@ -191,24 +190,25 @@ function get_bus() {
 // バス停の情報の明示化
     if (index != 0) {
 	var stop                = obj.options[index].value;
-	var destination         = obj2.value;
+	var dest                = obj2.value;
 	var status              = obj3.value;
+	var QUERY = Bus_Stop_Name[stop]['Destination'][dest][status]['Time'];
 
+// InnerHTMLの初期化および出力
 	figure.innerHTML = "";
+	destination.innerHTML = dest + " : " + status;
 
-
-	destination.innerHTML = DATA["BusStopName"][stop] + " " + DATA["Express"][stop];
-
+// データの出力用の関数を用いて準備
 	if ( Day == 0 ) {
-	    var QUERY    = this["B" + stop + "_sun"];
-	    bus_stop     = get_bus_stop(QUERY),stop;
+	    QUERY = QUERY['Sunday'];
+	    bus_stop     = get_bus_stop(QUERY,stop);
 	    bus_time     = bus_timeline(QUERY)
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefiend;
 	    }
 	}
         else if ( Day == 0 ) { //SAT
-	    var QUERY    = this["B" + stop + "_sat"];
+	    QUERY = QUERY['Saturday'];
 	    bus_stop     = get_bus_stop(QUERY,stop);
 	    bus_time     = bus_timeline(QUERY);
 	    if ( typeof bus_stop == 'undefined' ) {
@@ -216,13 +216,14 @@ function get_bus() {
 	    }
         }
         else {
-	    var QUERY    = this["B" + stop + "_weekday"];
+	    QUERY = QUERY['Weekday'];
 	    bus_stop     = get_bus_stop(QUERY,stop);
 	    bus_time     = bus_timeline(QUERY);
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefined;
 	    }
         }
+// 結果の出力
 	time.innerHTML     = bus_stop;
 	timeline.innerHTML = bus_time;
     }
