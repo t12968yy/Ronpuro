@@ -1,5 +1,4 @@
 function get_bus_stop(hoge, stop) {
-//    alert( typeof hoge);
 /// innerHTML
     var time        = document.getElementById('time');
     var destination = document.getElementById('destination');
@@ -15,11 +14,9 @@ function get_bus_stop(hoge, stop) {
 
 /// 出力用の変数設定
     var target_time = 23 * 60 + 59;
-//    trash.innerHTML = hoge;
-
-    var hour_length = hoge.length ;
 
 /// 時刻表に登録されている「時間」ごとに
+    var hour_length = hoge.length ;
     for ( var h = 0; h < hour_length; h++ ) {
 	var minute_length = hoge[h].length;
 
@@ -28,7 +25,6 @@ function get_bus_stop(hoge, stop) {
 	    // とりあえずここの処理無くても動くっぽいので後回し //
 	}
 	else {
-
 /// 時刻表に登録されている「分」ごとに
             for ( var m = 1; m < minute_length; m++ ) {
 
@@ -70,7 +66,7 @@ function get_bus_stop(hoge, stop) {
     }
     else {
 	out = "<table class=\"class1\" border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>" + target_h + ":" + target_m + "</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table>";
-	figure.innerHTML = DATA["BusStopName"][stop] + " ";
+//	figure.innerHTML = DATA["BusStopName"][stop] + " ";
 	for ( var i = 0; i< diff; i++ ){
 	    figure.innerHTML += ".";
 	}
@@ -134,7 +130,7 @@ function Make_pulldown_P() {
 function Make_pulldown_C(frmObj) {
     var pObj = frmObj.elements["parentS"].options;
     var out  = document.getElementById('childS');
-    var htm="<select onChange=\"Make_pulldown_GC(this.form)\" name=\"destination_name\" id=\"childS\" style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
+    var htm="<select onChange=\"get_bus()\" name=\"destination_name\" id=\"childS\" style='width:200px;'><br/><option value=\"Origin\" selected>====== 選択してください ======</option>";
 
 // 親ジャンルのoption数
     var pObjLen=pObj.length;
@@ -152,6 +148,7 @@ function Make_pulldown_C(frmObj) {
     out.innerHTML=htm;
 }
 
+/*
 // 孫pulldownの作成
 function Make_pulldown_GC(frmObj) {
     var pObj     = frmObj.elements["childS"].options;
@@ -174,20 +171,13 @@ function Make_pulldown_GC(frmObj) {
 // HTML出力
     out.innerHTML=htm;
 }
-
-function getPropertyNum(obj)
-{
-    var len = 0;
-    for (var key in obj) { ++len; }
-    return len;
-}
+*/
 
 function get_bus() {
 // pulldownからバス停の情報取得
     var obj          = document.bus.stop_name;
     var index        = obj.selectedIndex;
     var obj2         = document.bus.destination_name;
-    var obj3         = document.bus.status_name;
 
 // innerHTML用に情報取得
     var destination = document.getElementById('destination');
@@ -210,69 +200,35 @@ function get_bus() {
     if (index != 0) {
 	var stop                = obj.options[index].value;
 	var dest                = obj2.value;
-	var status              = obj3.value;
-//	var QUERY = Bus_Stop_Name[stop]['Destination'][dest][status]['Time'];
 
 	var QUERY_tmp = Bus_Stop_Name[stop]['Destination'][dest];
-	if( getPropertyNum(QUERY_tmp) > 1 ) {
-	    for ( var status_list in QUERY_tmp ) {
-		var QUERY = QUERY_tmp[status_list]['Time'];
-		alert(status_list);
-		if ( Day == 0 ) {
-		    QUERY = QUERY['Sunday'];
-		    bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
-		    bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
-		    if ( typeof bus_stop == 'undefined' ) {
-			bus_stop += bus_stop_undefiend;
-		    }
-		}
-		else if ( Day == 0 ) { //SAT
-		    QUERY = QUERY['Saturday'];
-		    bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
-		    bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
-		    if ( typeof bus_stop == 'undefined' ) {
-			bus_stop += bus_stop_undefined;
-		    }
-		}
-		else {
-		    QUERY = QUERY['Weekday'];
-		    bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
-		    bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
-		    if ( typeof bus_stop == 'undefined' ) {
-			bus_stop += bus_stop_undefined;
-		    }
-		}
-	    }
-	}
-	else {
-	    var QUERY = QUERY_tmp[status]['Time'];
-// データの出力用の関数を用いて準備
+	for ( var status_list in QUERY_tmp ) {
+	    var QUERY = QUERY_tmp[status_list]['Time'];
 	    if ( Day == 0 ) {
 		QUERY = QUERY['Sunday'];
-		bus_stop     = get_bus_stop(QUERY,stop);
-		bus_time     = bus_timeline(QUERY)
+		bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
+		bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
 		if ( typeof bus_stop == 'undefined' ) {
-		    bus_stop = bus_stop_undefiend;
+		    bus_stop += bus_stop_undefiend;
 		}
 	    }
-            else if ( Day == 0 ) { //SAT
+	    else if ( Day == 0 ) { //SAT
 		QUERY = QUERY['Saturday'];
-		bus_stop     = get_bus_stop(QUERY,stop);
-		bus_time     = bus_timeline(QUERY);
+		bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
+		bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
 		if ( typeof bus_stop == 'undefined' ) {
-		    bus_stop = bus_stop_undefined;
+		    bus_stop += bus_stop_undefined;
 		}
-            }
-            else {
+	    }
+	    else {
 		QUERY = QUERY['Weekday'];
-		bus_stop     = get_bus_stop(QUERY,stop);
-		bus_time     = bus_timeline(QUERY);
+		bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
+		bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
 		if ( typeof bus_stop == 'undefined' ) {
-		    bus_stop = bus_stop_undefined;
+		    bus_stop += bus_stop_undefined;
 		}
-            }
+	    }
 	}
-
 // InnerHTMLの初期化および出力
 	figure.innerHTML = "";
 	destination.innerHTML = dest + " : " + status;
