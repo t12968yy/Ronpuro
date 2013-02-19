@@ -175,6 +175,13 @@ function Make_pulldown_GC(frmObj) {
     out.innerHTML=htm;
 }
 
+function getPropertyNum(obj)
+{
+    var len = 0;
+    for (var key in obj) { ++len; }
+    return len;
+}
+
 function get_bus() {
 // pulldownからバス停の情報取得
     var obj          = document.bus.stop_name;
@@ -187,6 +194,8 @@ function get_bus() {
     var time        = document.getElementById('time');
     var timeline    = document.getElementById('Timeframe');
     var figure      = document.getElementById('figure');
+    var bus_stop = "";
+    var bus_time = "";
 
 // 現在時間の取得
     var Jikan       = new Date();
@@ -202,37 +211,72 @@ function get_bus() {
 	var stop                = obj.options[index].value;
 	var dest                = obj2.value;
 	var status              = obj3.value;
-	var QUERY = Bus_Stop_Name[stop]['Destination'][dest][status]['Time'];
+//	var QUERY = Bus_Stop_Name[stop]['Destination'][dest][status]['Time'];
+
+	var QUERY_tmp = Bus_Stop_Name[stop]['Destination'][dest];
+	if( getPropertyNum(QUERY_tmp) > 1 ) {
+	    for ( var status_list in QUERY_tmp ) {
+		var QUERY = QUERY_tmp[status_list]['Time'];
+		alert(status_list);
+		if ( Day == 0 ) {
+		    QUERY = QUERY['Sunday'];
+		    bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
+		    bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
+		    if ( typeof bus_stop == 'undefined' ) {
+			bus_stop += bus_stop_undefiend;
+		    }
+		}
+		else if ( Day == 0 ) { //SAT
+		    QUERY = QUERY['Saturday'];
+		    bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
+		    bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
+		    if ( typeof bus_stop == 'undefined' ) {
+			bus_stop += bus_stop_undefined;
+		    }
+		}
+		else {
+		    QUERY = QUERY['Weekday'];
+		    bus_stop     += status_list + "<br/>"+ get_bus_stop(QUERY,stop) + "<br/><br/><br/><br/><br/><br/><br/>";
+		    bus_time     += status_list + "<br/>"+ bus_timeline(QUERY) + "<br/>";
+		    if ( typeof bus_stop == 'undefined' ) {
+			bus_stop += bus_stop_undefined;
+		    }
+		}
+	    }
+	}
+	else {
+	    var QUERY = QUERY_tmp[status]['Time'];
+// データの出力用の関数を用いて準備
+	    if ( Day == 0 ) {
+		QUERY = QUERY['Sunday'];
+		bus_stop     = get_bus_stop(QUERY,stop);
+		bus_time     = bus_timeline(QUERY)
+		if ( typeof bus_stop == 'undefined' ) {
+		    bus_stop = bus_stop_undefiend;
+		}
+	    }
+            else if ( Day == 0 ) { //SAT
+		QUERY = QUERY['Saturday'];
+		bus_stop     = get_bus_stop(QUERY,stop);
+		bus_time     = bus_timeline(QUERY);
+		if ( typeof bus_stop == 'undefined' ) {
+		    bus_stop = bus_stop_undefined;
+		}
+            }
+            else {
+		QUERY = QUERY['Weekday'];
+		bus_stop     = get_bus_stop(QUERY,stop);
+		bus_time     = bus_timeline(QUERY);
+		if ( typeof bus_stop == 'undefined' ) {
+		    bus_stop = bus_stop_undefined;
+		}
+            }
+	}
 
 // InnerHTMLの初期化および出力
 	figure.innerHTML = "";
 	destination.innerHTML = dest + " : " + status;
 
-// データの出力用の関数を用いて準備
-	if ( Day == 0 ) {
-	    QUERY = QUERY['Sunday'];
-	    bus_stop     = get_bus_stop(QUERY,stop);
-	    bus_time     = bus_timeline(QUERY)
-	    if ( typeof bus_stop == 'undefined' ) {
-		bus_stop = bus_stop_undefiend;
-	    }
-	}
-        else if ( Day == 0 ) { //SAT
-	    QUERY = QUERY['Saturday'];
-	    bus_stop     = get_bus_stop(QUERY,stop);
-	    bus_time     = bus_timeline(QUERY);
-	    if ( typeof bus_stop == 'undefined' ) {
-		bus_stop = bus_stop_undefined;
-	    }
-        }
-        else {
-	    QUERY = QUERY['Weekday'];
-	    bus_stop     = get_bus_stop(QUERY,stop);
-	    bus_time     = bus_timeline(QUERY);
-	    if ( typeof bus_stop == 'undefined' ) {
-		bus_stop = bus_stop_undefined;
-	    }
-        }
 // 結果の出力
 	time.innerHTML     = bus_stop;
 	timeline.innerHTML = bus_time;
