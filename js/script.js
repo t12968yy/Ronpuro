@@ -70,7 +70,7 @@ function get_bus_stop(hoge, stop) {
     }
     else {
 	out = "<table class=\"class1\" border=\"0\" align=\"left\" style=\"table-layout: fixed;\" ><tr width=\"200\"><td>Bus Arrival</td><td>=></td><td>" + target_h + ":" + target_m + "</td></tr><tr width=\"50\"><td>Present time</td><td>=></td><td>" + pre_time_h + ":" + pre_time_m + "</td></tr><tr width=\"50\"><td>Time Left</td><td> =></td><td>" + diff + " min</td></tr></table>";
-	figure.innerHTML = DATA["BusStopName"][stop] + " ";
+	figure.innerHTML = stop + " ";
 	for ( var i = 0; i< diff; i++ ){
 	    figure.innerHTML += ".";
 	}
@@ -81,7 +81,7 @@ function get_bus_stop(hoge, stop) {
 
 function bus_timeline(hoge) {
     // 出力用の変数。<table>で整形
-    var out = "<table>";
+    var out = "<table border=\"2\">";
 
     // その路線が存在する時間をfor分で
     var hour_length = hoge.length;
@@ -174,6 +174,12 @@ function Make_pulldown_GC(frmObj) {
 // HTML出力
     out.innerHTML=htm;
 }
+function getPropertyNum(obj)
+{
+    var len = 0;
+    for (var key in obj) { ++len; }
+    return len;
+}
 
 function get_bus() {
 // pulldownからバス停の情報取得
@@ -204,6 +210,10 @@ function get_bus() {
 	var status              = obj3.value;
 	var QUERY = Bus_Stop_Name[stop]['Destination'][dest][status]['Time'];
 
+	if( getPropertyNum(Bus_Stop_Name[stop]['Destination'][dest])) {
+	    QUERY = Bus_Stop_Name[stop]['Destination'][dest][status]['Time'];
+	}
+
 // InnerHTMLの初期化および出力
 	figure.innerHTML = "";
 	destination.innerHTML = dest + " : " + status;
@@ -211,7 +221,7 @@ function get_bus() {
 // データの出力用の関数を用いて準備
 	if ( Day == 0 ) {
 	    QUERY = QUERY['Sunday'];
-	    bus_stop     = get_bus_stop(QUERY,stop);
+	    bus_stop     = get_bus_stop(QUERY,Bus_Stop_Name[stop]['Name']);
 	    bus_time     = bus_timeline(QUERY)
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefiend;
@@ -219,7 +229,7 @@ function get_bus() {
 	}
         else if ( Day == 0 ) { //SAT
 	    QUERY = QUERY['Saturday'];
-	    bus_stop     = get_bus_stop(QUERY,stop);
+	    bus_stop     = get_bus_stop(QUERY,Bus_Stop_Name[stop]['Name']);
 	    bus_time     = bus_timeline(QUERY);
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefined;
@@ -227,7 +237,7 @@ function get_bus() {
         }
         else {
 	    QUERY = QUERY['Weekday'];
-	    bus_stop     = get_bus_stop(QUERY,stop);
+	    bus_stop     = get_bus_stop(QUERY,Bus_Stop_Name[stop]['Name']);
 	    bus_time     = bus_timeline(QUERY);
 	    if ( typeof bus_stop == 'undefined' ) {
 		bus_stop = bus_stop_undefined;
