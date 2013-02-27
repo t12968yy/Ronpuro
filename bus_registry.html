@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">-->
+  <title>論理思考とプログラミング最終課題</title>
+  <!-- IEでHTML5のタグを認識するための処理 -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+</head>
+
+<body>
+  <div id="main">
+    <!-- cssの読み込み -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!-- Javascriptの読み込み -->
+    <script src="./js/register_bus.js"></script>
+    <script src="./data/data_seq.js"></script>
+
+<!-- 最寄りの時間 -->
+    <!-- プルダウン -->
+    <form name="registry" method="post" action="./cgi/register_bus.cgi">
+      <table>
+	<tr><th align=left>Bus Stop Name</th><th>:</th>
+	  <th align=left>バス停の名前</th><th><input type="text" name="bus_stop_name"></th></tr>
+	<tr><th align=left>Destination</th><th>:</th>
+	  <th align=left>終点</th><th><input type="text" name="destination"></th></tr>
+	<tr><th align=left>Status</th><th>:</th>
+	  <th align=left>普通・急行など</th><th><input type="text" name="status" value="普通"></th></tr>
+	<tr><th align=left>Day</th><th>:</th>
+	  <th align=left>平日・土曜・日曜から一つ</th><th><input type="text" name="day" value="平日"></th></tr>
+      </table>
+      <table>
+	<p>各時間におけるバスが到着する時間。コンマ区切りで入力して下さい。</p>
+	<tr><th>3</th><th>:</th><th><input type="text" name="r03"></th></tr>
+	<tr><th>4</th><th>:</th><th><input type="text" name="r04"></th></tr>
+	<tr><th>5</th><th>:</th><th><input type="text" name="r05"></th></tr>
+	<tr><th>6</th><th>:</th><th><input type="text" name="r06"></th></tr>
+	<tr><th>7</th><th>:</th><th><input type="text" name="r07"></th></tr>
+	<tr><th>8</th><th>:</th><th><input type="text" name="r08"></th></tr>
+	<tr><th>9</th><th>:</th><th><input type="text" name="r09"></th></tr>
+	<tr><th>10</th><th>:</th><th><input type="text" name="r10"></th></tr>
+	<tr><th>11</th><th>:</th><th><input type="text" name="r11"></th></tr>
+	<tr><th>12</th><th>:</th><th><input type="text" name="r12"></th></tr>
+	<tr><th>13</th><th>:</th><th><input type="text" name="r13"></th></tr>
+	<tr><th>14</th><th>:</th><th><input type="text" name="r14"></th></tr>
+	<tr><th>15</th><th>:</th><th><input type="text" name="r15"></th></tr>
+	<tr><th>16</th><th>:</th><th><input type="text" name="r16"></th></tr>
+	<tr><th>17</th><th>:</th><th><input type="text" name="r17"></th></tr>
+	<tr><th>18</th><th>:</th><th><input type="text" name="r18"></th></tr>
+	<tr><th>19</th><th>:</th><th><input type="text" name="r19"></th></tr>
+	<tr><th>20</th><th>:</th><th><input type="text" name="r20"></th></tr>
+	<tr><th>21</th><th>:</th><th><input type="text" name="r21"></th></tr>
+	<tr><th>22</th><th>:</th><th><input type="text" name="r22"></th></tr>
+	<tr><th>23</th><th>:</th><th><input type="text" name="r23"></th></tr>
+	<tr><th>24</th><th>:</th><th><input type="text" name="r24"></th></tr>
+	<tr><th>25</th><th>:</th><th><input type="text" name="r25"></th></tr>
+	<tr><th>26</th><th>:</th><th><input type="text" name="r26"></th></tr>
+	</table>
+	<input type="submit" value="REGISTER">
+    </form>
+
+
+  <div id="navi">
+    <ul>
+      <li><a href="./index.html"><span>Home</span></a></li>
+      <li><a href="./bus.html"><span>Bus</span></a></li>
+      <li><a href="./train.html"><span>Train</span></a></li>
+      <li><a href="latlong.html"><span>Location</span></a></li>
+      <li><a href="https://github.com/t12968yy/Ronpuro" target="_top"><span>About</span></a></li>
+      <li><a href="#"><span>Contact</span></a></li>
+    </ul>
+  </div>
+</body>
+</html>
