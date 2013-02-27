@@ -11,9 +11,14 @@ my $output_file = "";
 
 $output_cgi .= "Content-Type: text/html; charset=UTF-8\n\n";
 $output_cgi .= "<html>\n";
-$output_cgi .= "<head><title>フォームサンプル</title></head>\n";
+$output_cgi .= "<head><title>フォームサンプル</title>";
+$output_cgi .= '
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+';
+$output_cgi .= "</head>\n";
 $output_cgi .= "<body>\n";
-
+$output_cgi .= '<div id="main">';
 #送信されたデータを受け取る
 if ($ENV{'REQUEST_METHOD'} eq 'POST') {
   read(STDIN, $alldata, $ENV{'CONTENT_LENGTH'});
@@ -65,8 +70,28 @@ $output_cgi .= "</html>\n";
 $output_cgi .= "Adminの確認次第このデータが登録されます。<br/>";
 $output_cgi .= "緊急を要していましたら、".'t12968yy@sfc.keio.ac.jp'."に一報をお願いします。<br/>";
 $output_cgi .= "<a href=\"./../bus.html\">戻る</a><br/>";
+$output_cgi .= '</div>';
+$output_cgi .= '
+  <link rel="stylesheet" type="text/css" href="./../css/styles.css">
+<div id="navi">
+  <ul>
+    <li><a href="./../index.html"><span>Home</span></a></li>
+    <li><a href="./../bus.html"><span>Bus</span></a></li>
+    <li><a href="./../bus_registry.html"><span>Bus Registery</span></a></li>
+    <li><a href="./../train.html"><span>Train</span></a></li>
+    <li><a href="./../latlong.html"><span>Location</span></a></li>
+    <li><a href="https://github.com/t12968yy/Ronpuro" target="_top"><span>About</span></a></li>
+    <li><a href="#"><span>Contact</span></a></li>
+</ul>
+</div>
+';
 print $output_cgi;
 
+
+
+
+
+# ファイル出力用
 $output_file .= ~~localtime."\n";
 $output_file .= "\t\'Name\' : \'".$in{bus_stop_name}."\',\n<br/>";
 $output_file .= "\t\'Destination\' : \{\n<br/>";
