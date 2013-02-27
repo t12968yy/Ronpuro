@@ -120,5 +120,15 @@ else {
 print OUT $output_file;
 close (OUT);
 
+my $sendmail = '/usr/sbin/sendmail';
+open(SENDMAIL, " | $sendmail ".'t12968yy@sfc.keio.ac.jp' );
+print SENDMAIL 'From: t12968yy@sfc.keio.ac.jp'."\n";
+print SENDMAIL 'To: t12968yy@sfc.keio.ac.jp'."\n";
+print SENDMAIL 'Subject: QUERY REQUEST RECIVED'."\n";
+print SENDMAIL '
+A request has been recived by CGI script
+Please register it
+';
+close (SENDMAIL);
 
 exit;
