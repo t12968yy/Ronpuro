@@ -9,7 +9,7 @@ my %in;
 my $output_cgi = "";
 my $output_file = "";
 
-$output_cgi .= "Content-Type: text/html; charset=Shift_JIS\n\n";
+$output_cgi .= "Content-Type: text/html; charset=UTF-8\n\n";
 $output_cgi .= "<html>\n";
 $output_cgi .= "<head><title>フォームサンプル</title></head>\n";
 $output_cgi .= "<body>\n";
