@@ -8,7 +8,7 @@ Assignment for LOGICAL THINKING BY PROGRAMMING
 
 土曜と日曜で現在登録されてないバス停があります。
 
-将来的にはMySQLを用いたデータベースを構築したい。
+フォームを入力するとデータを登録することが出来ます (adminによる認可要)
 
 2.  Train
 
